@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://hq826c85glyk"]
+
+[ext_resource type="Script" uid="uid://cgd4kpgod6tkp" path="res://scripts/attack.gd" id="1_3exds"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8i2nt"]
+size = Vector2(50, 360)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8mc82"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjmiq"]
+size = Vector2(50, 360)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qu37g"]
+
+[node name="thunderpillar" type="Node2D" unique_id=2069167653 node_paths=PackedStringArray("attack_areas") groups=["attacks"]]
+script = ExtResource("1_3exds")
+attack_areas = [NodePath("LPillar"), NodePath("RPillar")]
+attack_damage = 20
+energy_cost = 30
+
+[node name="LPillar" type="Area2D" parent="." unique_id=1699175628]
+position = Vector2(-180, 0)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LPillar" unique_id=766706685]
+shape = SubResource("RectangleShape2D_8i2nt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="LPillar" unique_id=1996235603]
+sprite_frames = SubResource("SpriteFrames_8mc82")
+
+[node name="RPillar" type="Area2D" parent="." unique_id=1836736586]
+position = Vector2(180, 0)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RPillar" unique_id=406644769]
+shape = SubResource("RectangleShape2D_kjmiq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RPillar" unique_id=1234908370]
+sprite_frames = SubResource("SpriteFrames_qu37g")
