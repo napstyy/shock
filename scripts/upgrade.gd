@@ -42,15 +42,17 @@ func addUpgrade():
 	match upgrade_name:
 		UPGRADE_TYPE.AREA:
 			atknode.upgrade_area(5)
-			pass
 		UPGRADE_TYPE.DAMAGE:
 			atknode.attack_damage += 5 #TODO: Scale this per atk maybe
 		UPGRADE_TYPE.ENERGYCOST:
 			atknode.energy_cost -= 5
+		UPGRADE_TYPE.SPEED:
+			atknode.movement_speed += 60.0
 	#something, atknode.upgradename += scaling
 	pass
 
 func updateLabels():
+	#TODO #set label to name, 2nd label to upgrade
 	pass
 
 

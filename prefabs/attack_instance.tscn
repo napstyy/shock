@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://ullo0m2u2c7k"]
 
-[ext_resource type="Script" uid="uid://cgd4kpgod6tkp" path="res://scripts/attack.gd" id="1_qtk18"]
-[ext_resource type="Texture2D" uid="uid://d2ied7pwxw86c" path="res://icon.svg" id="2_sp24q"]
+[ext_resource type="Script" uid="uid://cgd4kpgod6tkp" path="res://scripts/attack.gd" id="1_fpjxi"]
+[ext_resource type="Texture2D" uid="uid://d2ied7pwxw86c" path="res://icon.svg" id="2_ae0gv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dmi2u"]
-atlas = ExtResource("2_sp24q")
+atlas = ExtResource("2_ae0gv")
 region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m3y8w"]
@@ -22,7 +22,8 @@ animations = [{
 size = Vector2(163, 63)
 
 [node name="Attack Instance" type="Node2D" unique_id=477390359]
-script = ExtResource("1_qtk18")
+script = ExtResource("1_fpjxi")
+area_growth = 1
 movement_points = Array[Vector2]([Vector2(0, 0), Vector2(200, 200)])
 movement_speed = 60.0
 
