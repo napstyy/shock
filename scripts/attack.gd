@@ -11,8 +11,15 @@ enum ATTACK_NAME{
 	THUNDERPILLAR,
 	LIGHTNINGORB
 }
+
+enum AREA_GROWTH_TYPE{
+	BOTH,
+	HORIZONTAL,
+	VERTICAL
+}
 @export var attack_name: ATTACK_NAME
 @export var attack_areas: Array[Area2D]
+@export var area_growth: AREA_GROWTH_TYPE
 @export var attack_damage: int
 @export var energy_cost: int
 
@@ -48,7 +55,7 @@ func _physics_process(delta: float) -> void:
 func attack_triggered():
 	if player.energy - energy_cost >= 0:
 		player.energy -= energy_cost
-		print(player.energy)
+		print(attack_damage)
 		#attack_sprite.visible = true
 		#attack_sprite.play(default)
 		#await attack_sprite.animationfinished
@@ -79,3 +86,25 @@ func attack_movement(delta):
 				direction.x *= -1
 			if self.position.y < 0 or self.position.y > screensize.y:
 				direction.y *= -1
+
+func upgrade_area(val):
+	for areas in attack_areas:
+		var collisionarea: CollisionShape2D
+		collisionarea = areas.get_child(0)
+		if collisionarea.shape is RectangleShape2D: #TODO add more customizeability
+			match area_growth:
+				AREA_GROWTH_TYPE.BOTH:
+					#print(collisionarea.shape.size)
+					collisionarea.shape.size+=val*Vector2.ONE
+					#print(collisionarea.shape.size)
+				AREA_GROWTH_TYPE.HORIZONTAL:
+					#print(collisionarea.shape.size)
+					collisionarea.shape.size.x+=val
+					#print(collisionarea.shape.size)
+				AREA_GROWTH_TYPE.VERTICAL:
+					#print(collisionarea.shape.size)
+					collisionarea.shape.size.y+=val
+					#print(collisionarea.shape.size)
+		elif collisionarea.shape is CircleShape2D: #TODO Test this when adding lightning orb
+			collisionarea.shape.radius += float(val)
+			

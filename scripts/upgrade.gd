@@ -2,7 +2,8 @@ class_name Upgrade
 extends Node
 
 enum ATTACK_NAME{
-	THUNDERPILLAR
+	THUNDERPILLAR,
+	LIGHTNINGORB
 }
 enum UPGRADE_TYPE{
 	NONE,
@@ -17,7 +18,7 @@ var is_in_tree = false
 var atknode: Attack
 #if groups in attacks not in tree, upgrade, otherwise add to tree
 
-func _init(att_name: ATTACK_NAME = ATTACK_NAME.THUNDERPILLAR, upgr_name: UPGRADE_TYPE = UPGRADE_TYPE.DAMAGE):
+func _init(att_name: ATTACK_NAME = ATTACK_NAME.THUNDERPILLAR, upgr_name: UPGRADE_TYPE = UPGRADE_TYPE.AREA):
 	attack_name = att_name
 	upgrade_name = upgr_name
 # Called when the node enters the scene tree for the first time.
@@ -31,21 +32,30 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func addAttack(atktype):
+func addAttack():
 	#match atktype:
 	#something, add child
+	print("attack")
 	pass
-func addUpgrade(upgtype):
-	#match upgtype
+func addUpgrade():
+	print("upgrade")
+	match upgrade_name:
+		UPGRADE_TYPE.AREA:
+			atknode.upgrade_area(5)
+			pass
+		UPGRADE_TYPE.DAMAGE:
+			atknode.attack_damage += 5 #TODO: Scale this per atk maybe
+		UPGRADE_TYPE.ENERGYCOST:
+			atknode.energy_cost -= 5
 	#something, atknode.upgradename += scaling
 	pass
 
 func updateLabels():
 	pass
 
-func onClick():
-	#if is_in_tree:
-	#addUpgrade
-	#else:
-	#addAttack
-	pass
+
+func _on_button_button_down() -> void:
+	if is_in_tree:
+		addUpgrade()
+	else:
+		addAttack()

@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://c8j2caec5ng3k"]
+
+[ext_resource type="Texture2D" uid="uid://dlru5ie5ny8h3" path="res://assets/menurecttemp.png" id="1_mpd81"]
+[ext_resource type="Script" uid="uid://cmen65jne8yo5" path="res://scripts/upgrade.gd" id="1_svgjm"]
+[ext_resource type="FontFile" uid="uid://bukguo81riwbo" path="res://assets/fonts/Jacquard24-Regular.ttf" id="2_svgjm"]
+
+[node name="Node2D" type="Control" unique_id=197916132]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_svgjm")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=464702481]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -90.0
+offset_right = 70.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_mpd81")
+
+[node name="CardName" type="RichTextLabel" parent="NinePatchRect" unique_id=567579281]
+layout_mode = 0
+offset_right = 140.0
+offset_bottom = 40.0
+theme_override_colors/default_color = Color(0.96862745, 0.95686275, 0.7137255, 1)
+theme_override_fonts/normal_font = ExtResource("2_svgjm")
+bbcode_enabled = true
+text = "Test Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardDesc" type="RichTextLabel" parent="NinePatchRect" unique_id=160686687]
+layout_mode = 0
+offset_top = 101.0
+offset_right = 140.0
+offset_bottom = 141.0
+theme_override_colors/default_color = Color(0.96862745, 0.95686275, 0.7137255, 1)
+theme_override_fonts/normal_font = ExtResource("2_svgjm")
+text = "Test Upgrade
++5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="NinePatchRect" unique_id=1655667196]
+layout_mode = 0
+offset_right = 140.0
+offset_bottom = 180.0
+flat = true
+
+[connection signal="button_down" from="NinePatchRect/Button" to="." method="_on_button_button_down"]

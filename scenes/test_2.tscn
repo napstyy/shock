@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://cgd4kpgod6tkp" path="res://scripts/attack.gd" id="3_kjmiq"]
 [ext_resource type="PackedScene" uid="uid://xtsbcs12gqpw" path="res://prefabs/spawner.tscn" id="4_8mc82"]
 [ext_resource type="PackedScene" uid="uid://hq826c85glyk" path="res://prefabs/attacks/thunderpillar.tscn" id="6_acnpl"]
+[ext_resource type="PackedScene" uid="uid://c8j2caec5ng3k" path="res://prefabs/upgradecard.tscn" id="6_jklrr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qu37g"]
 
@@ -39,7 +40,6 @@ position = Vector2(-320, 0)
 script = ExtResource("3_kjmiq")
 attack_name = 1
 attack_areas = [NodePath("Area2D")]
-attack_damage = 15
 energy_cost = 10
 movement_type = 1
 movement_points = Array[Vector2]([Vector2(320, 0), Vector2(-320, 0)])
@@ -54,3 +54,9 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LightningorbSpawn/lightningorb/Area2D" unique_id=1719643289]
 shape = SubResource("CircleShape2D_acnpl")
+
+[node name="Node2D" parent="." unique_id=197916132 instance=ExtResource("6_jklrr")]
+offset_left = 320.0
+offset_top = 155.0
+offset_right = 320.0
+offset_bottom = 155.0
