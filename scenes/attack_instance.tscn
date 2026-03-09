@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cpcxi1gdjakw0"]
 
-[ext_resource type="Script" uid="uid://cgd4kpgod6tkp" path="res://attack.gd" id="1_qtk18"]
+[ext_resource type="Script" uid="uid://cgd4kpgod6tkp" path="res://scripts/attack.gd" id="1_qtk18"]
 [ext_resource type="Texture2D" uid="uid://d2ied7pwxw86c" path="res://icon.svg" id="2_sp24q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dmi2u"]

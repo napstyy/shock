@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c6m1sf4ew33xc"]
 
-[ext_resource type="Texture2D" uid="uid://d2ied7pwxw86c" path="res://icon.svg" id="1_5b5lw"]
 [ext_resource type="Script" uid="uid://lgqplwhtkwx2" path="res://scripts/wraith.gd" id="1_g0dij"]
+[ext_resource type="Texture2D" uid="uid://cv5otdnccbrag" path="res://assets/Enemy1.png" id="2_g0dij"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e8vgv"]
 size = Vector2(48, 50)
@@ -10,12 +10,12 @@ size = Vector2(48, 50)
 collision_layer = 2
 script = ExtResource("1_g0dij")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=2132253475]
-position = Vector2(1.000001, 0)
-scale = Vector2(0.2051561, 0.69203115)
-texture = ExtResource("1_5b5lw")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1865475766]
 position = Vector2(1, 0)
 scale = Vector2(0.5199996, 1.7199996)
 shape = SubResource("RectangleShape2D_e8vgv")
+
+[node name="Enemy1" type="Sprite2D" parent="." unique_id=91053546]
+position = Vector2(-1, 10)
+scale = Vector2(0.54385966, 1.8877552)
+texture = ExtResource("2_g0dij")

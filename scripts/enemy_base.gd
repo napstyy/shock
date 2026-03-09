@@ -9,10 +9,12 @@ var player
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
+	scale.x = -sign(player.global_position.x - global_position.x)
 
 func move(target_pos: Vector2) -> void:
 	var direction = sign(target_pos.x - global_position.x)
 	velocity.x = direction * speed
+
 	move_and_slide()
 
 func take_damage(amount: float) -> void:
