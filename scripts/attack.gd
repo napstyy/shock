@@ -8,7 +8,8 @@ enum MOVEMENT_TYPE {
 	BOUNCE #Takes an initial vector & moves until hit edge of screen, if no initial vector chooses a random one
 }
 enum ATTACK_NAME{
-	THUNDERPILLAR
+	THUNDERPILLAR,
+	LIGHTNINGORB
 }
 @export var attack_name: ATTACK_NAME
 @export var attack_areas: Array[Area2D]
