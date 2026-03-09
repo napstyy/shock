@@ -19,10 +19,14 @@ enum MOVEMENT_TYPE {
 @export var attack_sprite:AnimatedSprite2D
 
 var nextpoint = -1
+var direction = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	if movement_points.is_empty() or movement_points[0]==Vector2.ZERO:
+		direction = Vector2(RandomNumberGenerator.new().randf(),RandomNumberGenerator.new().randf())
+	else:
+		direction = movement_points[0].normalized()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -63,10 +67,8 @@ func attack_movement(delta):
 			self.position = self.position.move_toward(movement_points[nextpoint], movement_speed*delta)
 		MOVEMENT_TYPE.BOUNCE:
 			var screensize = get_viewport().get_visible_rect().size
-			var direction = Vector2.ZERO
-			if movement_points.is_empty() or movement_points[0]==Vector2.ZERO:
-				#randomize velocity
-				pass
-			else:
-				direction = movement_points[0].normalized()
 			self.position += direction * movement_speed * delta
+			if self.position.x < 0 or self.position.x > screensize.x:
+				direction.x *= -1
+			if self.position.y < 0 or self.position.y > screensize.y:
+				direction.y *= -1
