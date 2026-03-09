@@ -1,3 +1,9 @@
 [gd_scene format=3 uid="uid://cdye0bsgc6gbo"]
 
+[ext_resource type="Texture2D" uid="uid://b7aj0qlh3gea6" path="res://assets/BGSHOCK.png" id="1_errlg"]
+
 [node name="Test" type="Node2D" unique_id=1217248449]
+
+[node name="Bgshock" type="Sprite2D" parent="." unique_id=876950034]
+position = Vector2(320, 180)
+texture = ExtResource("1_errlg")
