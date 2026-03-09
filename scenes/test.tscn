@@ -1,9 +1,36 @@
 [gd_scene format=3 uid="uid://cdye0bsgc6gbo"]
 
+[ext_resource type="Script" uid="uid://byuut5v3i328t" path="res://scripts/spawner.gd" id="1_bl13t"]
 [ext_resource type="Texture2D" uid="uid://b7aj0qlh3gea6" path="res://assets/BGSHOCK.png" id="1_errlg"]
+[ext_resource type="PackedScene" uid="uid://b82yrmhbxwhu3" path="res://prefabs/ghost.tscn" id="2_bl13t"]
+[ext_resource type="PackedScene" uid="uid://c6m1sf4ew33xc" path="res://prefabs/wraith.tscn" id="3_74lek"]
+[ext_resource type="PackedScene" uid="uid://d2j2dagcw53r2" path="res://prefabs/player.tscn" id="5_j5jx5"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_errlg"]
+distance = -15.0
 
 [node name="Test" type="Node2D" unique_id=1217248449]
+script = ExtResource("1_bl13t")
+ghost_scene = ExtResource("2_bl13t")
+wraith_scene = ExtResource("3_74lek")
 
 [node name="Bgshock" type="Sprite2D" parent="." unique_id=876950034]
 position = Vector2(320, 180)
 texture = ExtResource("1_errlg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=611785265]
+visible = false
+position = Vector2(303, 318)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1659691127]
+position = Vector2(-1, -7)
+shape = SubResource("WorldBoundaryShape2D_errlg")
+
+[node name="Timer" type="Timer" parent="." unique_id=25403461]
+wait_time = 2.0
+autostart = true
+
+[node name="player" parent="." unique_id=849173276 instance=ExtResource("5_j5jx5")]
+position = Vector2(320, 284)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
