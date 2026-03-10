@@ -1,21 +1,73 @@
 [gd_scene format=3 uid="uid://c6m1sf4ew33xc"]
 
 [ext_resource type="Script" uid="uid://lgqplwhtkwx2" path="res://scripts/enemy/wraith.gd" id="1_g0dij"]
-[ext_resource type="Texture2D" uid="uid://cv5otdnccbrag" path="res://assets/Enemy1.png" id="2_g0dij"]
+[ext_resource type="Texture2D" uid="uid://reacvrj8fcg" path="res://assets/Walker.png" id="2_uk3y5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e8vgv"]
-size = Vector2(48, 50)
+size = Vector2(70.18707, 35.048637)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4witf"]
+atlas = ExtResource("2_uk3y5")
+region = Rect2(0, 0, 137, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vovs"]
+atlas = ExtResource("2_uk3y5")
+region = Rect2(137, 0, 137, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gceu2"]
+atlas = ExtResource("2_uk3y5")
+region = Rect2(274, 0, 137, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlnup"]
+atlas = ExtResource("2_uk3y5")
+region = Rect2(411, 0, 137, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flemc"]
+atlas = ExtResource("2_uk3y5")
+region = Rect2(548, 0, 137, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyef6"]
+atlas = ExtResource("2_uk3y5")
+region = Rect2(685, 0, 137, 157)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_svn7x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4witf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vovs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gceu2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vlnup")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flemc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hyef6")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [node name="Node2D" type="CharacterBody2D" unique_id=1365831229]
 collision_layer = 2
 script = ExtResource("1_g0dij")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1865475766]
-position = Vector2(1, 0)
-scale = Vector2(0.5199996, 1.7199996)
+position = Vector2(-3.0000005, -22.403278)
+scale = Vector2(0.7693724, 2.5448482)
 shape = SubResource("RectangleShape2D_e8vgv")
 
-[node name="Enemy1" type="Sprite2D" parent="." unique_id=91053546]
-position = Vector2(-1, 10)
-scale = Vector2(0.54385966, 1.8877552)
-texture = ExtResource("2_g0dij")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1421628115]
+position = Vector2(6.000001, -26)
+scale = Vector2(-0.764, 0.764)
+sprite_frames = SubResource("SpriteFrames_svn7x")
+animation = &"walk"
+frame_progress = 0.01721199

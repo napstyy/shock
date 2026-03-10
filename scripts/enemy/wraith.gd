@@ -10,3 +10,4 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	move(player.global_position)
+	$AnimatedSprite2D.play("walk")
