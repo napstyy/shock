@@ -14,6 +14,10 @@ config/name="Shock"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Enums="*uid://cigu4o7k2oy4f"
+
 [display]
 
 window/size/viewport_width=640

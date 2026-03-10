@@ -1,48 +1,54 @@
 class_name Upgrade
 extends Node
 
-enum ATTACK_NAME{
-	THUNDERPILLAR,
-	LIGHTNINGORB
-}
-enum UPGRADE_TYPE{
-	NONE,
-	AREA,
-	DAMAGE,
-	ENERGYCOST,
-	SPEED
-}
+signal menuclosed
+#enum ATTACK_NAME{
+	#THUNDERPILLAR,
+	#LIGHTNINGORB
+#}
+#enum UPGRADE_TYPE{
+	#NONE,
+	#AREA,
+	#DAMAGE,
+	#ENERGYCOST,
+	#SPEED
+#}
 var upgrade_dict = {
-	ATTACK_NAME.THUNDERPILLAR: {
+	Enums.ATTACK_NAME.THUNDERPILLAR: {
 		"AtkName": "Thunder Pillar",
 		"Scene": preload("res://prefabs/attacks/thunderpillar.tscn").instantiate(),
 		"Desc": "This should never be seen"
-		}
+		},
+	Enums.ATTACK_NAME.LIGHTNINGORB: {
+		"AtkName": "Lightning Orb",
+		"Scene": preload("res://prefabs/attacks/lightningorb.tscn").instantiate(),
+		"Desc": "A condensed ball of lightning which bounds back and forth."
+	}
 }
 var upgrade_names = { #Need a better way for scaling
-	UPGRADE_TYPE.NONE: {
+	Enums.UPGRADE_TYPE.NONE: {
 		"Name": "None",
 		"Mod": 0
 			},
-	UPGRADE_TYPE.AREA: {
+	Enums.UPGRADE_TYPE.AREA: {
 		"Name": "Area",
 		"Mod": 5
 		},
-	UPGRADE_TYPE.DAMAGE: {
+	Enums.UPGRADE_TYPE.DAMAGE: {
 		"Name": "Damage",
 		"Mod": 5
 			},
-	UPGRADE_TYPE.ENERGYCOST: {
+	Enums.UPGRADE_TYPE.ENERGYCOST: {
 		"Name": "Energy Cost",
 		"Mod": 5
 		},
-	UPGRADE_TYPE.SPEED: {
+	Enums.UPGRADE_TYPE.SPEED: {
 		"Name": "Speed",
 		"Mod": 60.0
 		}
 }
-var attack_name: ATTACK_NAME
-var upgrade_name: UPGRADE_TYPE
+var attack_name: Enums.ATTACK_NAME
+var upgrade_name: Enums.UPGRADE_TYPE
 var is_in_tree = false
 var atknode: Attack
 
@@ -51,7 +57,7 @@ var atknode: Attack
 
 #if groups in attacks not in tree, upgrade, otherwise add to tree
 
-func _init(att_name: ATTACK_NAME = ATTACK_NAME.THUNDERPILLAR, upgr_name: UPGRADE_TYPE = UPGRADE_TYPE.AREA):
+func _init(att_name: Enums.ATTACK_NAME = Enums.ATTACK_NAME.LIGHTNINGORB, upgr_name: Enums.UPGRADE_TYPE = Enums.UPGRADE_TYPE.AREA):
 	attack_name = att_name
 	upgrade_name = upgr_name
 	
@@ -72,23 +78,24 @@ func _process(delta: float) -> void:
 
 func addAttack(): #TODO need to test
 	var atk = upgrade_dict[attack_name]["Scene"]
-	get_tree().root.get_child(0).add_child(atk)
+	print(get_tree().current_scene)
+	get_tree().current_scene.add_child(atk)
 	atk.inputname = "Attack"+ str(get_tree().get_nodes_in_group("attacks").size())
-	#close menu
+	menuclosed.emit()
 
 func addUpgrade():
 	print("upgrade")
 	match upgrade_name:
-		UPGRADE_TYPE.AREA:
+		Enums.UPGRADE_TYPE.AREA:
 			atknode.upgrade_area(upgrade_names[upgrade_name]["Mod"])
-		UPGRADE_TYPE.DAMAGE:
+		Enums.UPGRADE_TYPE.DAMAGE:
 			atknode.attack_damage += upgrade_names[upgrade_name]["Mod"] #TODO: Scale this per atk maybe
-		UPGRADE_TYPE.ENERGYCOST:
+		Enums.UPGRADE_TYPE.ENERGYCOST:
 			atknode.energy_cost -= upgrade_names[upgrade_name]["Mod"]
-		UPGRADE_TYPE.SPEED:
+		Enums.UPGRADE_TYPE.SPEED:
 			atknode.movement_speed += upgrade_names[upgrade_name]["Mod"]
 	#something, atknode.upgradename += scaling
-	#close menu
+	menuclosed.emit()
 
 func updateLabels():
 	card_name.text = upgrade_dict[attack_name]["AtkName"]

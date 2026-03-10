@@ -7,17 +7,17 @@ enum MOVEMENT_TYPE {
 	ONESHOT, #Moves to point and then teleports to origin, origin should be the first point of the array
 	BOUNCE #Takes an initial vector & moves until hit edge of screen, if no initial vector chooses a random one
 }
-enum ATTACK_NAME{
-	THUNDERPILLAR,
-	LIGHTNINGORB
-}
+#enum ATTACK_NAME{
+	#THUNDERPILLAR,
+	#LIGHTNINGORB
+#}
 
 enum AREA_GROWTH_TYPE{
 	BOTH,
 	HORIZONTAL,
 	VERTICAL
 }
-@export var attack_name: ATTACK_NAME
+@export var attack_name: Enums.ATTACK_NAME
 @export var attack_areas: Array[Area2D]
 @export var area_growth: AREA_GROWTH_TYPE
 @export var attack_damage: int
@@ -33,7 +33,7 @@ var inputname := ""
 var nextpoint := -1
 var direction := Vector2.ZERO
 var player
-var starting_atk = ATTACK_NAME.THUNDERPILLAR
+var starting_atk = Enums.ATTACK_NAME.THUNDERPILLAR
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")

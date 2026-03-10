@@ -43,9 +43,9 @@ vertical_alignment = 1
 
 [node name="CardDesc" type="RichTextLabel" parent="NinePatchRect" unique_id=160686687]
 layout_mode = 0
-offset_top = 101.0
+offset_top = 89.0
 offset_right = 140.0
-offset_bottom = 141.0
+offset_bottom = 178.0
 theme_override_colors/default_color = Color(0.96862745, 0.95686275, 0.7137255, 1)
 theme_override_fonts/normal_font = ExtResource("2_svgjm")
 text = "Test Upgrade

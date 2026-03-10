@@ -6,6 +6,42 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e8vgv"]
 size = Vector2(70.18707, 35.048637)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_uk3y5"]
+atlas = ExtResource("2_uk3y5")
+region = Rect2(822, 0, 137, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpy32"]
+atlas = ExtResource("2_uk3y5")
+region = Rect2(959, 0, 137, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ry6p2"]
+atlas = ExtResource("2_uk3y5")
+region = Rect2(1096, 0, 137, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7x6k"]
+atlas = ExtResource("2_uk3y5")
+region = Rect2(1233, 0, 137, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qwrf"]
+atlas = ExtResource("2_uk3y5")
+region = Rect2(1370, 0, 137, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cuwnv"]
+atlas = ExtResource("2_uk3y5")
+region = Rect2(1507, 0, 137, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jr8hb"]
+atlas = ExtResource("2_uk3y5")
+region = Rect2(1644, 0, 137, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n52il"]
+atlas = ExtResource("2_uk3y5")
+region = Rect2(1781, 0, 137, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0unno"]
+atlas = ExtResource("2_uk3y5")
+region = Rect2(1918, 0, 137, 157)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_4witf"]
 atlas = ExtResource("2_uk3y5")
 region = Rect2(0, 0, 137, 157)
@@ -32,6 +68,38 @@ region = Rect2(685, 0, 137, 157)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_svn7x"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uk3y5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpy32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ry6p2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7x6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qwrf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cuwnv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jr8hb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n52il")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0unno")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4witf")
@@ -69,5 +137,5 @@ shape = SubResource("RectangleShape2D_e8vgv")
 position = Vector2(6.000001, -26)
 scale = Vector2(-0.764, 0.764)
 sprite_frames = SubResource("SpriteFrames_svn7x")
-animation = &"walk"
-frame_progress = 0.01721199
+animation = &"attack"
+frame_progress = 0.7139431
