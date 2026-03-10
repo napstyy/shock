@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b7aj0qlh3gea6" path="res://assets/BGSHOCK.png" id="1_8i2nt"]
 [ext_resource type="PackedScene" uid="uid://d2j2dagcw53r2" path="res://prefabs/player.tscn" id="2_kjmiq"]
-[ext_resource type="PackedScene" uid="uid://xtsbcs12gqpw" path="res://prefabs/spawner.tscn" id="4_8mc82"]
+[ext_resource type="PackedScene" uid="uid://xtsbcs12gqpw" path="res://prefabs/enemies/spawner.tscn" id="4_8mc82"]
 [ext_resource type="PackedScene" uid="uid://hq826c85glyk" path="res://prefabs/attacks/thunderpillar.tscn" id="6_acnpl"]
 [ext_resource type="PackedScene" uid="uid://c8j2caec5ng3k" path="res://prefabs/upgradecard.tscn" id="6_jklrr"]
 

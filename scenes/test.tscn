@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cdye0bsgc6gbo"]
 
-[ext_resource type="Script" uid="uid://byuut5v3i328t" path="res://scripts/spawner.gd" id="1_bl13t"]
+[ext_resource type="Script" uid="uid://byuut5v3i328t" path="res://scripts/enemy/spawner.gd" id="1_bl13t"]
 [ext_resource type="Texture2D" uid="uid://b7aj0qlh3gea6" path="res://assets/BGSHOCK.png" id="1_errlg"]
-[ext_resource type="PackedScene" uid="uid://b82yrmhbxwhu3" path="res://prefabs/ghost.tscn" id="2_bl13t"]
-[ext_resource type="PackedScene" uid="uid://c6m1sf4ew33xc" path="res://prefabs/wraith.tscn" id="3_74lek"]
+[ext_resource type="PackedScene" uid="uid://b82yrmhbxwhu3" path="res://prefabs/enemies/ghost.tscn" id="2_bl13t"]
+[ext_resource type="PackedScene" uid="uid://c6m1sf4ew33xc" path="res://prefabs/enemies/wraith.tscn" id="3_74lek"]
 [ext_resource type="PackedScene" uid="uid://d2j2dagcw53r2" path="res://prefabs/player.tscn" id="5_j5jx5"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_errlg"]

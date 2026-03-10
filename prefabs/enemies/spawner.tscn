@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://xtsbcs12gqpw"]
 
-[ext_resource type="Script" uid="uid://byuut5v3i328t" path="res://scripts/spawner.gd" id="1_ohdau"]
-[ext_resource type="PackedScene" uid="uid://b82yrmhbxwhu3" path="res://prefabs/ghost.tscn" id="2_jodvj"]
-[ext_resource type="PackedScene" uid="uid://c6m1sf4ew33xc" path="res://prefabs/wraith.tscn" id="3_oy8jr"]
+[ext_resource type="Script" uid="uid://byuut5v3i328t" path="res://scripts/enemy/spawner.gd" id="1_ohdau"]
+[ext_resource type="PackedScene" uid="uid://b82yrmhbxwhu3" path="res://prefabs/enemies/ghost.tscn" id="2_jodvj"]
+[ext_resource type="PackedScene" uid="uid://c6m1sf4ew33xc" path="res://prefabs/enemies/wraith.tscn" id="3_oy8jr"]
 
 [node name="Spawner" type="Node2D" unique_id=1881567075]
 script = ExtResource("1_ohdau")
