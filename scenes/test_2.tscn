@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://xtsbcs12gqpw" path="res://prefabs/enemies/spawner.tscn" id="4_8mc82"]
 [ext_resource type="PackedScene" uid="uid://hq826c85glyk" path="res://prefabs/attacks/thunderpillar.tscn" id="6_acnpl"]
 [ext_resource type="PackedScene" uid="uid://c8j2caec5ng3k" path="res://prefabs/upgradecard.tscn" id="6_jklrr"]
+[ext_resource type="PackedScene" uid="uid://vn3sq00h2g02" path="res://prefabs/upgrademenu.tscn" id="6_kaaju"]
 
 [node name="Test2" type="Node2D" unique_id=733101548]
 
@@ -34,3 +35,5 @@ offset_right = 320.0
 offset_bottom = 155.0
 
 [node name="thunderpillar" parent="." unique_id=2069167653 instance=ExtResource("6_acnpl")]
+
+[node name="Control" parent="." unique_id=471795962 instance=ExtResource("6_kaaju")]

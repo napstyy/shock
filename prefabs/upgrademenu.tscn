@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://vn3sq00h2g02"]
+
+[ext_resource type="Script" uid="uid://8y7qq2cxiyr" path="res://scripts/upgrade_menu.gd" id="1_6xxiq"]
+[ext_resource type="PackedScene" uid="uid://c8j2caec5ng3k" path="res://prefabs/upgradecard.tscn" id="1_nqyas"]
+
+[node name="Control" type="Control" unique_id=471795962]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6xxiq")
+
+[node name="Node2D" parent="." unique_id=197916132 instance=ExtResource("1_nqyas")]
+visible = false
+layout_mode = 1
+
+[node name="Node2D2" parent="." unique_id=1071849904 instance=ExtResource("1_nqyas")]
+visible = false
+layout_mode = 1
+offset_left = -160.0
+offset_right = -160.0
+
+[node name="Node2D3" parent="." unique_id=295466666 instance=ExtResource("1_nqyas")]
+visible = false
+layout_mode = 1
+offset_left = 160.0
+offset_right = 160.0
