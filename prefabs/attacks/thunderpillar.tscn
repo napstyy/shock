@@ -13,6 +13,7 @@ size = Vector2(50, 360)
 [sub_resource type="SpriteFrames" id="SpriteFrames_qu37g"]
 
 [node name="thunderpillar" type="Node2D" unique_id=2069167653 node_paths=PackedStringArray("attack_areas") groups=["attacks"]]
+position = Vector2(320, 180)
 script = ExtResource("1_3exds")
 attack_areas = [NodePath("LPillar"), NodePath("RPillar")]
 attack_damage = 20

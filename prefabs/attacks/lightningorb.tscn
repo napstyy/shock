@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bivaqvl0tvub6"]
+
+[ext_resource type="Script" uid="uid://cgd4kpgod6tkp" path="res://scripts/attack.gd" id="1_gbf4y"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qu37g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_acnpl"]
+
+[node name="LightningorbSpawn" type="Node2D" unique_id=1431750913]
+position = Vector2(320, 280)
+
+[node name="lightningorb" type="Node2D" parent="." unique_id=286924847 node_paths=PackedStringArray("attack_areas") groups=["attacks"]]
+position = Vector2(-320, 0)
+script = ExtResource("1_gbf4y")
+attack_name = 1
+attack_areas = [NodePath("Area2D")]
+attack_damage = 30
+energy_cost = 10
+movement_type = 1
+movement_points = Array[Vector2]([Vector2(320, 0), Vector2(-320, 0)])
+movement_speed = 60.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="lightningorb" unique_id=1464906822]
+sprite_frames = SubResource("SpriteFrames_qu37g")
+
+[node name="Area2D" type="Area2D" parent="lightningorb" unique_id=1425393609]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lightningorb/Area2D" unique_id=604900138]
+shape = SubResource("CircleShape2D_acnpl")

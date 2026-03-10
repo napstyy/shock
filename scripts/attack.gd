@@ -33,10 +33,12 @@ var inputname := ""
 var nextpoint := -1
 var direction := Vector2.ZERO
 var player
-
+var starting_atk = ATTACK_NAME.THUNDERPILLAR
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
+	if attack_name == starting_atk:
+		inputname = "Attack1"
 	if movement_points.is_empty() or movement_points[0]==Vector2.ZERO:
 		direction = Vector2(RandomNumberGenerator.new().randf(),RandomNumberGenerator.new().randf())
 	else:
@@ -45,8 +47,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_released("Attack1"):
-		attack_triggered()
+	if InputMap.has_action(inputname):
+		if Input.is_action_just_released(inputname):
+			attack_triggered()
 
 func _physics_process(delta: float) -> void:
 	attack_movement(delta)
@@ -55,7 +58,7 @@ func _physics_process(delta: float) -> void:
 func attack_triggered():
 	if player.energy - energy_cost >= 0:
 		player.energy -= energy_cost
-		print(attack_damage)
+		print("Attack: "+str(attack_name))
 		#attack_sprite.visible = true
 		#attack_sprite.play(default)
 		#await attack_sprite.animationfinished
