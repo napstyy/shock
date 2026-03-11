@@ -2,77 +2,121 @@ extends Node
 
 var cards_drawn = 3
 var card_arr = []
+var node_arr = []
 var pos_arr = [Vector2(160,180), Vector2(320,180), Vector2(480,180)]
 var attack_arr: Array[Enums.ATTACK_NAME] = []
+@onready var card_1: Upgrade = $Card1
+@onready var card_2: Upgrade = $Card2
+@onready var card_3: Upgrade = $Card3
+
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for x in get_tree().get_nodes_in_group("attacks"):
 		attack_arr.append(x.attack_name)
-	draw_upgrades()
+	node_arr = [card_1,card_2,card_3]
+	for i in range(node_arr.size()):
+		draw_upgrades(i)
 #Card 1 is 160,180, 2: 320, 180, 4: 480, 180
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	#if Input.is_action_just_released("Attack2"): #TEST
+			#draw_upgrades()
 	pass
 
-func draw_upgrades():
+func draw_upgrades(idx):
 	#Check total attacks
 	var randomatk = randomize_attack()
 	var randomupg = randomize_upgrade()
 	match attack_arr.size():
-		1:#if wave == 1/attackarrsize ==1, construct only new attacks
-			#while attack_arr has randomatk, rerandomize, then check against other cards
+		1:#if only 1 attack, THIS WORKS
+			#while attack_arr has randomatk, rerandomize, then check against other drawn cards
 			while attack_arr.has(randomatk) or has_card(randomatk):
-				randomatk = randomize_attack()
+				randomatk = rerandomize_attack()
 			#add atk card
-			var new_card = Upgrade.new(randomatk,Enums.UPGRADE_TYPE.NONE)
-			card_arr.append(new_card)
-			get_tree().current_scene.add_child(new_card)
+			node_arr[idx].attack_name = randomatk
+			node_arr[idx].upgrade_name = Enums.UPGRADE_TYPE.NONE
+			node_arr[idx].setup()
+			card_arr.append(node_arr[idx])
+			#get_tree().current_scene.add_child(new_card)
+			print("I triggered")
 
 		2,3:#else randomize. if attack,
 			if attack_arr.has(randomatk): #TODO Check if has upgrade too
 				#randomize upgrade
 				while has_card_upg(randomatk,randomupg):
-					randomupg = randomize_upgrade()
+					randomupg = rerandomize_upgrade(randomatk)
 
-				var new_card = Upgrade.new(randomatk,randomupg)
-				card_arr.append(new_card)
-				get_tree().current_scene.add_child(new_card)
+				node_arr[idx].attack_name = randomatk
+				node_arr[idx].upgrade_name = randomupg
+				node_arr[idx].setup()
+				card_arr.append(node_arr[idx])
 			else:
 				#add attack #TODO also check against others cards previously drawn
 				#attack_arr.append(randomatk) #append after choosing
 				while attack_arr.has(randomatk) or has_card(randomatk):
-					randomatk = randomize_attack()
+					randomatk = rerandomize_attack()
 
-				var new_card = Upgrade.new(randomatk,Enums.UPGRADE_TYPE.NONE)
-				card_arr.append(new_card)
-				get_tree().current_scene.add_child(new_card)
+				node_arr[idx].attack_name = randomatk
+				node_arr[idx].upgrade_name = Enums.UPGRADE_TYPE.NONE
+				node_arr[idx].setup()
+				card_arr.append(node_arr[idx])
 				#TODO: connectsignal, addattacktoarray on select, set pos
 
 		4:#only upgrades
 			#TODO: randomize func for only within attacks held
 			randomatk = randomize_owned_attack()
 			while has_card_upg(randomatk,randomupg):
-					randomupg = randomize_upgrade()
-			
-			var new_card = Upgrade.new(randomatk,randomupg)
-			card_arr.append(new_card)
-			get_tree().current_scene.add_child(new_card)
+					randomupg = rerandomize_upgrade(randomatk)
+			node_arr[idx].attack_name = randomatk
+			node_arr[idx].upgrade_name = randomupg
+			node_arr[idx].setup()
+			card_arr.append(node_arr[idx])
 
 func randomize_attack():
-	var randomatkidx = RandomNumberGenerator.new().randi_range(0,Enums.ATTACK_NAME.size()-1)
-	var randomatk= Enums.ATTACK_NAME.find_key(randomatkidx)
+	var randomatk = RandomNumberGenerator.new().randi_range(1,Enums.ATTACK_NAME.size()-1)
+	#var randomatk= Enums.ATTACK_NAME.find_key(randomatkidx)
 	return randomatk
 
 func randomize_owned_attack():
-	var randomatkidx = RandomNumberGenerator.new().randi_range(0,attack_arr.size()-1)
-	var randomatk= Enums.ATTACK_NAME.find_key(randomatkidx)
+	var randomatk = RandomNumberGenerator.new().randi_range(0,attack_arr.size()-1)
+	#var randomatk= Enums.ATTACK_NAME.find_key(randomatkidx)
 	return randomatk
 
 func randomize_upgrade():
-	var randomupgidx = RandomNumberGenerator.new().randi_range(1,Enums.UPGRADE_TYPE.size()-1)
-	var randomupg= Enums.UPGRADE_TYPE.find_key(randomupgidx)
+	var randomupg = RandomNumberGenerator.new().randi_range(1,Enums.UPGRADE_TYPE.size()-1)
+	#var randomupg= Enums.UPGRADE_TYPE.find_key(randomupgidx)
 	return randomupg
+
+func rerandomize_attack():
+	var tempatkarr = []
+	for attack in Enums.ATTACK_NAME:
+		tempatkarr.append(Enums.ATTACK_NAME[attack])
+	for x in attack_arr:
+		if tempatkarr.has(x):
+			var idx = tempatkarr.find(x)
+			tempatkarr.pop_at(idx)
+	for x in card_arr:
+		if tempatkarr.has(x.attack_name):
+			var idx = tempatkarr.find(x.attack_name)
+			tempatkarr.pop_at(idx)
+	tempatkarr.pop_at(0) #Get rid of shockwave
+	return tempatkarr.pick_random()
+
+func rerandomize_upgrade(atk):
+	var tempupgarr = []
+	for upgrades in Enums.UPGRADE_TYPE:
+		tempupgarr.append(Enums.UPGRADE_TYPE[upgrades])
+	for x in card_arr:
+		if x.attack_name == atk:
+			if tempupgarr.has(x.upgrade_name):
+				var idx = tempupgarr.find(x.upgrade_name)
+				tempupgarr.pop_at(idx)
+	tempupgarr.pop_at(0) #Get rid of none
+	return tempupgarr.pick_random()
 
 func has_card(atk):
 	if not card_arr.is_empty():

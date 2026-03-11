@@ -23,6 +23,16 @@ var upgrade_dict = {
 		"AtkName": "Lightning Orb",
 		"Scene": preload("res://prefabs/attacks/lightningorb.tscn").instantiate(),
 		"Desc": "A condensed ball of lightning which bounds back and forth."
+	},
+	Enums.ATTACK_NAME.ATTACK3:{
+		"AtkName": "TESTATK3",
+		"Scene": "NOSCENE",
+		"Desc": "TESTATK3"
+	},
+	Enums.ATTACK_NAME.ATTACK4:{
+		"AtkName": "TESTATK4",
+		"Scene": "NOSCENE",
+		"Desc": "TESTATK4"
 	}
 }
 var upgrade_names = { #Need a better way for scaling
@@ -57,20 +67,21 @@ var atknode: Attack
 
 #if groups in attacks not in tree, upgrade, otherwise add to tree
 
-func _init(att_name: Enums.ATTACK_NAME = Enums.ATTACK_NAME.LIGHTNINGORB, upgr_name: Enums.UPGRADE_TYPE = Enums.UPGRADE_TYPE.AREA):
+func _init(att_name: Enums.ATTACK_NAME = Enums.ATTACK_NAME.SHOCKWAVE, upgr_name: Enums.UPGRADE_TYPE = Enums.UPGRADE_TYPE.NONE):
 	attack_name = att_name
 	upgrade_name = upgr_name
 	
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for attacks in get_tree().get_nodes_in_group("attacks"):
-		if attacks.attack_name == self.attack_name:
-			is_in_tree = true
-			atknode = attacks
-	upgrade_dict[attack_name]["UpgName"] = upgrade_names[upgrade_name]["Name"] + "\n+"+ str(upgrade_names[upgrade_name]["Mod"])
-	#print(upgrade_dict)
-	updateLabels()
+	#for attacks in get_tree().get_nodes_in_group("attacks"):
+		#if attacks.attack_name == self.attack_name:
+			#is_in_tree = true
+			#atknode = attacks
+	#upgrade_dict[attack_name]["UpgName"] = upgrade_names[upgrade_name]["Name"] + "\n+"+ str(upgrade_names[upgrade_name]["Mod"])
+	##print(upgrade_dict)
+	#updateLabels()
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -110,3 +121,11 @@ func _on_button_button_down() -> void:
 		addUpgrade()
 	else:
 		addAttack()
+		
+func setup():
+	for attacks in get_tree().get_nodes_in_group("attacks"):
+		if attacks.attack_name == self.attack_name:
+			is_in_tree = true
+			atknode = attacks
+	upgrade_dict[attack_name]["UpgName"] = upgrade_names[upgrade_name]["Name"] + "\n+"+ str(upgrade_names[upgrade_name]["Mod"])
+	updateLabels()
