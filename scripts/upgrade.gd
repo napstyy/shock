@@ -78,7 +78,7 @@ func _process(delta: float) -> void:
 
 func addAttack(): #TODO need to test
 	var atk = upgrade_dict[attack_name]["Scene"]
-	print(get_tree().current_scene)
+	#print(get_tree().current_scene)
 	get_tree().current_scene.add_child(atk)
 	atk.inputname = "Attack"+ str(get_tree().get_nodes_in_group("attacks").size())
 	menuclosed.emit()
