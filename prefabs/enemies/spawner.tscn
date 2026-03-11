@@ -1,15 +1,36 @@
 [gd_scene format=3 uid="uid://xtsbcs12gqpw"]
 
 [ext_resource type="Script" uid="uid://byuut5v3i328t" path="res://scripts/enemy/spawner.gd" id="1_ohdau"]
+[ext_resource type="Script" uid="uid://ds7ipm0r0rs28" path="res://scripts/enemy/wave.gd" id="2_ajqkl"]
 [ext_resource type="PackedScene" uid="uid://b82yrmhbxwhu3" path="res://prefabs/enemies/ghost.tscn" id="2_jodvj"]
+[ext_resource type="Script" uid="uid://bdlrie3xqxcv1" path="res://scripts/enemy/enemy_count.gd" id="3_i0lvk"]
 [ext_resource type="PackedScene" uid="uid://c6m1sf4ew33xc" path="res://prefabs/enemies/wraith.tscn" id="3_oy8jr"]
+
+[sub_resource type="Resource" id="Resource_aqx5k"]
+script = ExtResource("3_i0lvk")
+scene = ExtResource("2_jodvj")
+metadata/_custom_type_script = "uid://bdlrie3xqxcv1"
+
+[sub_resource type="Resource" id="Resource_sb33p"]
+script = ExtResource("3_i0lvk")
+scene = ExtResource("3_oy8jr")
+count = 1
+metadata/_custom_type_script = "uid://bdlrie3xqxcv1"
+
+[sub_resource type="Resource" id="Resource_k6aj0"]
+script = ExtResource("2_ajqkl")
+enemies = Array[ExtResource("3_i0lvk")]([SubResource("Resource_aqx5k"), SubResource("Resource_sb33p")])
+metadata/_custom_type_script = "uid://ds7ipm0r0rs28"
 
 [node name="Spawner" type="Node2D" unique_id=1881567075]
 script = ExtResource("1_ohdau")
-ghost_scene = ExtResource("2_jodvj")
-wraith_scene = ExtResource("3_oy8jr")
+waves = Array[ExtResource("2_ajqkl")]([SubResource("Resource_k6aj0")])
 
 [node name="Timer" type="Timer" parent="." unique_id=1197338374]
 autostart = true
 
+[node name="WaveTimer" type="Timer" parent="." unique_id=315395502]
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
