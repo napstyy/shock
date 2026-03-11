@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://coba4o38oa2l8"]
+
+[ext_resource type="Script" uid="uid://cgd4kpgod6tkp" path="res://scripts/attack.gd" id="1_nycu5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qu37g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8mc82"]
+radius = 150.0
+
+[node name="Shockwave" type="Node2D" unique_id=642483841 node_paths=PackedStringArray("attack_areas", "attack_sprites")]
+script = ExtResource("1_nycu5")
+attack_areas = [NodePath("Area2D")]
+attack_damage = 50
+attack_sprites = [NodePath("AnimatedSprite2D")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=419083692]
+sprite_frames = SubResource("SpriteFrames_qu37g")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1155894862]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=42712296]
+shape = SubResource("CircleShape2D_8mc82")
+debug_color = Color(0.6780634, 0.5053033, 5.7756904e-07, 0.41960785)

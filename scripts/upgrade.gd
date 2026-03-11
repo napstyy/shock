@@ -33,6 +33,11 @@ var upgrade_dict = {
 		"AtkName": "TESTATK4",
 		"Scene": "NOSCENE",
 		"Desc": "TESTATK4"
+	},
+	Enums.ATTACK_NAME.ATTACK5:{
+		"AtkName": "TESTATK5",
+		"Scene": "NOSCENE",
+		"Desc": "TESTATK5"
 	}
 }
 var upgrade_names = { #Need a better way for scaling
@@ -50,7 +55,7 @@ var upgrade_names = { #Need a better way for scaling
 			},
 	Enums.UPGRADE_TYPE.ENERGYCOST: {
 		"Name": "Energy Cost",
-		"Mod": 5
+		"Mod": -5
 		},
 	Enums.UPGRADE_TYPE.SPEED: {
 		"Name": "Speed",
@@ -102,7 +107,7 @@ func addUpgrade():
 		Enums.UPGRADE_TYPE.DAMAGE:
 			atknode.attack_damage += upgrade_names[upgrade_name]["Mod"] #TODO: Scale this per atk maybe
 		Enums.UPGRADE_TYPE.ENERGYCOST:
-			atknode.energy_cost -= upgrade_names[upgrade_name]["Mod"]
+			atknode.energy_cost += upgrade_names[upgrade_name]["Mod"]
 		Enums.UPGRADE_TYPE.SPEED:
 			atknode.movement_speed += upgrade_names[upgrade_name]["Mod"]
 	#something, atknode.upgradename += scaling
@@ -127,5 +132,8 @@ func setup():
 		if attacks.attack_name == self.attack_name:
 			is_in_tree = true
 			atknode = attacks
-	upgrade_dict[attack_name]["UpgName"] = upgrade_names[upgrade_name]["Name"] + "\n+"+ str(upgrade_names[upgrade_name]["Mod"])
+	if upgrade_names[upgrade_name]["Mod"]>=0:
+		upgrade_dict[attack_name]["UpgName"] = upgrade_names[upgrade_name]["Name"] + "\n+"+ str(upgrade_names[upgrade_name]["Mod"])
+	else:
+		upgrade_dict[attack_name]["UpgName"] = upgrade_names[upgrade_name]["Name"] + "\n"+ str(upgrade_names[upgrade_name]["Mod"])
 	updateLabels()

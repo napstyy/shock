@@ -7,6 +7,7 @@ var energy := 100.0:
 	set(value):
 		energy = clamp(value,0,100)
 var energyregen = 1.0
+@onready var shockwave: Attack = $Shockwave
 
 func _ready() -> void:
 	pass
@@ -15,6 +16,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	print(body)
 	body.queue_free()
 	health -= 1
+	shockwave.attack_triggered()
 	if health <= 0:
 		gameover()
 

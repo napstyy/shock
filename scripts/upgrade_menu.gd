@@ -3,6 +3,7 @@ extends Node
 var cards_drawn = 3
 var card_arr = []
 var node_arr = []
+var stationaryattacks = [Enums.ATTACK_NAME.THUNDERPILLAR]
 var pos_arr = [Vector2(160,180), Vector2(320,180), Vector2(480,180)]
 var attack_arr: Array[Enums.ATTACK_NAME] = []
 @onready var card_1: Upgrade = $Card1
@@ -17,6 +18,8 @@ func _ready() -> void:
 	for x in get_tree().get_nodes_in_group("attacks"):
 		attack_arr.append(x.attack_name)
 	node_arr = [card_1,card_2,card_3]
+	for nodes in node_arr:
+		nodes.menuclosed.connect(_on_menu_closed)
 	for i in range(node_arr.size()):
 		draw_upgrades(i)
 #Card 1 is 160,180, 2: 320, 180, 4: 480, 180
@@ -27,7 +30,7 @@ func _process(delta: float) -> void:
 			#draw_upgrades()
 	pass
 
-func draw_upgrades(idx):
+func draw_upgrades(idx): #TODO: When adding attacks, if there are no new ones in the pool, it errors
 	#Check total attacks
 	var randomatk = randomize_attack()
 	var randomupg = randomize_upgrade()
@@ -37,44 +40,63 @@ func draw_upgrades(idx):
 			while attack_arr.has(randomatk) or has_card(randomatk):
 				randomatk = rerandomize_attack()
 			#add atk card
-			node_arr[idx].attack_name = randomatk
-			node_arr[idx].upgrade_name = Enums.UPGRADE_TYPE.NONE
-			node_arr[idx].setup()
-			card_arr.append(node_arr[idx])
+			#node_arr[idx].attack_name = randomatk
+			#node_arr[idx].upgrade_name = Enums.UPGRADE_TYPE.NONE
+			#node_arr[idx].setup()
+			#card_arr.append(node_arr[idx])
+			add_card(idx,randomatk,Enums.UPGRADE_TYPE.NONE)
 			#get_tree().current_scene.add_child(new_card)
-			print("I triggered")
+			#print("I triggered")
+			
 
 		2,3:#else randomize. if attack,
-			if attack_arr.has(randomatk): #TODO Check if has upgrade too
+			if attack_arr.has(randomatk):
 				#randomize upgrade
+				if stationaryattacks.has(randomatk) and randomupg == Enums.UPGRADE_TYPE.SPEED:#check for stationary
+					randomupg = rerandomize_upgrade(randomatk)
 				while has_card_upg(randomatk,randomupg):
 					randomupg = rerandomize_upgrade(randomatk)
 
-				node_arr[idx].attack_name = randomatk
-				node_arr[idx].upgrade_name = randomupg
-				node_arr[idx].setup()
-				card_arr.append(node_arr[idx])
+				#node_arr[idx].attack_name = randomatk
+				#node_arr[idx].upgrade_name = randomupg
+				#node_arr[idx].setup()
+				#card_arr.append(node_arr[idx])
+				add_card(idx,randomatk,randomupg)
 			else:
 				#add attack #TODO also check against others cards previously drawn
 				#attack_arr.append(randomatk) #append after choosing
 				while attack_arr.has(randomatk) or has_card(randomatk):
 					randomatk = rerandomize_attack()
 
-				node_arr[idx].attack_name = randomatk
-				node_arr[idx].upgrade_name = Enums.UPGRADE_TYPE.NONE
-				node_arr[idx].setup()
-				card_arr.append(node_arr[idx])
+				#node_arr[idx].attack_name = randomatk
+				#node_arr[idx].upgrade_name = Enums.UPGRADE_TYPE.NONE
+				#node_arr[idx].setup()
+				#card_arr.append(node_arr[idx])
+				add_card(idx,randomatk,Enums.UPGRADE_TYPE.NONE)
 				#TODO: connectsignal, addattacktoarray on select, set pos
 
 		4:#only upgrades
 			#TODO: randomize func for only within attacks held
 			randomatk = randomize_owned_attack()
+			if stationaryattacks.has(randomatk) and randomupg == Enums.UPGRADE_TYPE.SPEED:#Check for stationary
+					randomupg = rerandomize_upgrade(randomatk)
 			while has_card_upg(randomatk,randomupg):
 					randomupg = rerandomize_upgrade(randomatk)
-			node_arr[idx].attack_name = randomatk
-			node_arr[idx].upgrade_name = randomupg
-			node_arr[idx].setup()
-			card_arr.append(node_arr[idx])
+			#node_arr[idx].attack_name = randomatk
+			#node_arr[idx].upgrade_name = randomupg
+			#node_arr[idx].setup()
+			#card_arr.append(node_arr[idx])
+			add_card(idx,randomatk,randomupg)
+
+func _on_menu_closed():
+	print("close_menu")
+	queue_free()
+
+func add_card(index, atk, upg):
+	node_arr[index].attack_name = atk
+	node_arr[index].upgrade_name = upg
+	node_arr[index].setup()
+	card_arr.append(node_arr[index])
 
 func randomize_attack():
 	var randomatk = RandomNumberGenerator.new().randi_range(1,Enums.ATTACK_NAME.size()-1)
@@ -110,12 +132,17 @@ func rerandomize_upgrade(atk):
 	var tempupgarr = []
 	for upgrades in Enums.UPGRADE_TYPE:
 		tempupgarr.append(Enums.UPGRADE_TYPE[upgrades])
+	if stationaryattacks.has(atk): #Stationary shouldnt have speed
+		var idx = tempupgarr.find(Enums.UPGRADE_TYPE.SPEED)
+		tempupgarr.pop_at(idx)
 	for x in card_arr:
 		if x.attack_name == atk:
 			if tempupgarr.has(x.upgrade_name):
 				var idx = tempupgarr.find(x.upgrade_name)
 				tempupgarr.pop_at(idx)
 	tempupgarr.pop_at(0) #Get rid of none
+	if tempupgarr.is_empty():
+		print("NO MORE ATTACKS REMAINING")
 	return tempupgarr.pick_random()
 
 func has_card(atk):
