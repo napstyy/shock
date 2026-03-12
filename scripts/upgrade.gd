@@ -24,7 +24,7 @@ var upgrade_dict = {
 		"Scene": preload("res://prefabs/attacks/lightningorb.tscn").instantiate(),
 		"Desc": "A condensed ball of lightning which bounds back and forth."
 	},
-	Enums.ATTACK_NAME.ATTACK3:{
+	Enums.ATTACK_NAME.BARRIERARC:{
 		"AtkName": "TESTATK3",
 		"Scene": "NOSCENE",
 		"Desc": "TESTATK3"

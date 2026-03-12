@@ -1,12 +1,65 @@
 [gd_scene format=3 uid="uid://d2j2dagcw53r2"]
 
 [ext_resource type="Script" uid="uid://bckw7v2nsgsjn" path="res://scripts/player.gd" id="1_72ieh"]
+[ext_resource type="Texture2D" uid="uid://n7m3mghwxjpw" path="res://assets/WIZATKLeftBarrier.png" id="2_ht1c8"]
 [ext_resource type="Texture2D" uid="uid://chaq5h5aihed" path="res://assets/PlayerIdle.png" id="2_r66lb"]
 [ext_resource type="Texture2D" uid="uid://c6gwwknxvow7v" path="res://assets/PlayerStart.png" id="3_1txc5"]
 [ext_resource type="PackedScene" uid="uid://coba4o38oa2l8" path="res://prefabs/attacks/shockwave.tscn" id="4_1txc5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_74lek"]
 size = Vector2(51, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4pj3"]
+atlas = ExtResource("2_ht1c8")
+region = Rect2(0, 0, 102, 136)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1s2y"]
+atlas = ExtResource("2_ht1c8")
+region = Rect2(102, 0, 102, 136)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0anbp"]
+atlas = ExtResource("2_ht1c8")
+region = Rect2(204, 0, 102, 136)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3k5d"]
+atlas = ExtResource("2_ht1c8")
+region = Rect2(306, 0, 102, 136)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2v6jp"]
+atlas = ExtResource("2_ht1c8")
+region = Rect2(408, 0, 102, 136)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwbmn"]
+atlas = ExtResource("2_ht1c8")
+region = Rect2(510, 0, 102, 136)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3or85"]
+atlas = ExtResource("2_ht1c8")
+region = Rect2(612, 0, 102, 136)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxohq"]
+atlas = ExtResource("2_ht1c8")
+region = Rect2(714, 0, 102, 136)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hvlk"]
+atlas = ExtResource("2_ht1c8")
+region = Rect2(816, 0, 102, 136)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btr86"]
+atlas = ExtResource("2_ht1c8")
+region = Rect2(918, 0, 102, 136)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30w5g"]
+atlas = ExtResource("2_ht1c8")
+region = Rect2(1020, 0, 102, 136)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_envas"]
+atlas = ExtResource("2_ht1c8")
+region = Rect2(1122, 0, 102, 136)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pp8wu"]
+atlas = ExtResource("2_ht1c8")
+region = Rect2(1224, 0, 102, 136)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ht1c8"]
 atlas = ExtResource("2_r66lb")
@@ -118,6 +171,50 @@ region = Rect2(1900, 0, 95, 170)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w4pj3"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4pj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1s2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0anbp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3k5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2v6jp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwbmn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3or85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxohq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hvlk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btr86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30w5g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_envas")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pp8wu")
+}],
+"loop": false,
+"name": &"attack3",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ht1c8")
@@ -248,8 +345,10 @@ shape = SubResource("RectangleShape2D_74lek")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2065206841]
 sprite_frames = SubResource("SpriteFrames_w4pj3")
-animation = &"startup"
-autoplay = "idle"
+animation = &"attack3"
+autoplay = "attack3"
+frame = 12
+frame_progress = 1.0
 offset = Vector2(15, -34)
 
 [node name="EnergyRegenTimer" type="Timer" parent="." unique_id=1527453453]
@@ -257,6 +356,7 @@ wait_time = 0.1
 autostart = true
 
 [node name="Shockwave" parent="." unique_id=642483841 instance=ExtResource("4_1txc5")]
+energy_cost = 200
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="EnergyRegenTimer" to="." method="_on_energy_regen_timer_timeout"]

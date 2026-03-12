@@ -27,13 +27,14 @@ enum AREA_GROWTH_TYPE{
 @export var movement_points: Array[Vector2]
 @export var movement_speed:float
 
-@export var attack_sprites: Array[AnimatedSprite2D]
+@export var attack_anim: AnimationPlayer
 
 var inputname := ""
 var nextpoint := -1
 var direction := Vector2.ZERO
 var player
-var starting_atk = Enums.ATTACK_NAME.THUNDERPILLAR
+var starting_atk = Enums.ATTACK_NAME.BARRIERARC
+var is_attacking = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
@@ -56,17 +57,17 @@ func _physics_process(delta: float) -> void:
 
 	
 func attack_triggered():
-	if player.energy - energy_cost >= 0:
+	if player.energy - energy_cost >= 0 and not is_attacking:
 		player.energy -= energy_cost
 		print("Attack: "+str(attack_name))
+		is_attacking = true
+		attack_anim.play("attack")
+		await attack_anim.animation_finished
+		is_attacking = false
 		#attack_sprite.visible = true
 		#attack_sprite.play(default)
 		#await attack_sprite.animationfinished
-		for areas in attack_areas:
-			var enemies = areas.get_overlapping_bodies()
-			#print(areas.get_overlapping_bodies())
-			for enemy in enemies:
-				enemy.take_damage(attack_damage) #TEST
+		#deal_damage()
 
 func attack_movement(delta):
 	match movement_type:
@@ -111,3 +112,11 @@ func upgrade_area(val):
 		elif collisionarea.shape is CircleShape2D: #TODO Test this when adding lightning orb
 			collisionarea.shape.radius += float(val)
 			
+func deal_damage():
+	print("dealt damage")
+	for areas in attack_areas:
+			var enemies = areas.get_overlapping_bodies()
+			print(enemies)
+			#print(areas.get_overlapping_bodies())
+			for enemy in enemies:
+				enemy.take_damage(attack_damage) #TEST

@@ -109,9 +109,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sgwgh")
 }],
-"loop": false,
+"loop": true,
 "name": &"default",
-"speed": 8.0
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jklrr"]
@@ -146,7 +146,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_kaaju"]
 resource_name = "attack"
-length = 2.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -154,10 +153,10 @@ tracks/0/path = NodePath("Area2D/CollisionShape2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.6009407, 2.6),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false, false, false]
+"values": [true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -166,24 +165,10 @@ tracks/1/path = NodePath("AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 2.6),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
+"update": 1,
 "values": [0, 13]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(1.6),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"deal_damage"
-}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vcsrw"]
@@ -219,27 +204,22 @@ offset_top = 180.0
 offset_right = 319.0
 offset_bottom = 180.0
 
-[node name="barrierarc" type="Node2D" parent="." unique_id=1482253998 node_paths=PackedStringArray("attack_areas", "attack_anim") groups=["attacks"]]
+[node name="barrierarc" type="Node2D" parent="." unique_id=1482253998]
 script = ExtResource("6_jklrr")
 attack_name = 3
-attack_areas = [NodePath("Area2D")]
-attack_damage = 30
-energy_cost = 20
-attack_anim = NodePath("AnimationPlayer")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="barrierarc" unique_id=283678138]
 position = Vector2(222, 191)
 sprite_frames = SubResource("SpriteFrames_kaaju")
 
 [node name="Area2D" type="Area2D" parent="barrierarc" unique_id=945556205]
-collision_layer = 4
-collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="barrierarc/Area2D" unique_id=49063103]
-position = Vector2(158, 137.00008)
+position = Vector2(158.18132, 139.02432)
 rotation = 0.87266463
 scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_jklrr")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="barrierarc" unique_id=770435292]
 libraries/ = SubResource("AnimationLibrary_vcsrw")
+autoplay = &"attack"
