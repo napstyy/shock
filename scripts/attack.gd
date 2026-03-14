@@ -33,7 +33,7 @@ var inputname := ""
 var nextpoint := -1
 var direction := Vector2.ZERO
 var player
-var starting_atk = Enums.ATTACK_NAME.BARRIERARC
+var starting_atk = Enums.ATTACK_NAME.THUNDERPILLAR
 var is_attacking = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -61,9 +61,11 @@ func attack_triggered():
 		player.energy -= energy_cost
 		print("Attack: "+str(attack_name))
 		is_attacking = true
+		player.play_attack_anim("attack"+str(attack_name))
 		attack_anim.play("attack")
 		await attack_anim.animation_finished
 		is_attacking = false
+		#player.play_attack_anim("idle")
 		#attack_sprite.visible = true
 		#attack_sprite.play(default)
 		#await attack_sprite.animationfinished

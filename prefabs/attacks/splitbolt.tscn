@@ -1,0 +1,217 @@
+[gd_scene format=3 uid="uid://ce6e620qkf5ar"]
+
+[ext_resource type="Script" uid="uid://cgd4kpgod6tkp" path="res://scripts/attack.gd" id="1_84teo"]
+[ext_resource type="Texture2D" uid="uid://drxjo34jetd1" path="res://assets/FXATKLeftArc.png" id="2_tgpv8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kaaju"]
+atlas = ExtResource("2_tgpv8")
+region = Rect2(0, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcsrw"]
+atlas = ExtResource("2_tgpv8")
+region = Rect2(640, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ys1qx"]
+atlas = ExtResource("2_tgpv8")
+region = Rect2(1280, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6f0nr"]
+atlas = ExtResource("2_tgpv8")
+region = Rect2(1920, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t5uc"]
+atlas = ExtResource("2_tgpv8")
+region = Rect2(2560, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jptny"]
+atlas = ExtResource("2_tgpv8")
+region = Rect2(3200, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqyx2"]
+atlas = ExtResource("2_tgpv8")
+region = Rect2(3840, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enlks"]
+atlas = ExtResource("2_tgpv8")
+region = Rect2(4480, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pag38"]
+atlas = ExtResource("2_tgpv8")
+region = Rect2(5120, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tg4va"]
+atlas = ExtResource("2_tgpv8")
+region = Rect2(5760, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46ssk"]
+atlas = ExtResource("2_tgpv8")
+region = Rect2(6400, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogxww"]
+atlas = ExtResource("2_tgpv8")
+region = Rect2(7040, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvjqe"]
+atlas = ExtResource("2_tgpv8")
+region = Rect2(7680, 0, 640, 360)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sgwgh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kaaju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcsrw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ys1qx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6f0nr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6t5uc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jptny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqyx2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enlks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pag38")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tg4va")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46ssk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogxww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvjqe")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kaaju"]
+size = Vector2(20, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcsrw"]
+size = Vector2(20, 60)
+
+[sub_resource type="Animation" id="Animation_jklrr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_kaaju"]
+resource_name = "attack"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 12]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"deal_damage"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vcsrw"]
+_data = {
+&"RESET": SubResource("Animation_jklrr"),
+&"attack": SubResource("Animation_kaaju")
+}
+
+[node name="splitbolt" type="Node2D" unique_id=629320727 node_paths=PackedStringArray("attack_areas", "attack_anim") groups=["attacks"]]
+script = ExtResource("1_84teo")
+attack_name = 4
+attack_areas = [NodePath("Larea"), NodePath("Rarea")]
+area_growth = 1
+attack_damage = 30
+attack_anim = NodePath("AnimationPlayer")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1767364698]
+visible = false
+position = Vector2(347, 180)
+sprite_frames = SubResource("SpriteFrames_sgwgh")
+frame = 12
+
+[node name="Larea" type="Area2D" parent="." unique_id=1316313214]
+position = Vector2(98, 292)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Larea" unique_id=998719445]
+shape = SubResource("RectangleShape2D_kaaju")
+
+[node name="Rarea" type="Area2D" parent="." unique_id=507390374]
+position = Vector2(251, 292)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rarea" unique_id=457849578]
+shape = SubResource("RectangleShape2D_vcsrw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=485392469]
+libraries/ = SubResource("AnimationLibrary_vcsrw")

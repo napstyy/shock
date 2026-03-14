@@ -25,19 +25,29 @@ var upgrade_dict = {
 		"Desc": "A condensed ball of lightning which bounds back and forth."
 	},
 	Enums.ATTACK_NAME.BARRIERARC:{
-		"AtkName": "TESTATK3",
-		"Scene": "NOSCENE",
-		"Desc": "TESTATK3"
+		"AtkName": "Barrier Arc",
+		"Scene": preload("res://prefabs/attacks/barrierarc.tscn").instantiate(),
+		"Desc": "TestDesc"
 	},
-	Enums.ATTACK_NAME.ATTACK4:{
-		"AtkName": "TESTATK4",
-		"Scene": "NOSCENE",
-		"Desc": "TESTATK4"
+	Enums.ATTACK_NAME.SPLITBOLT:{
+		"AtkName": "Split Bolt",
+		"Scene": preload("res://prefabs/attacks/splitbolt.tscn").instantiate(),
+		"Desc": "TestDesc"
 	},
-	Enums.ATTACK_NAME.ATTACK5:{
-		"AtkName": "TESTATK5",
-		"Scene": "NOSCENE",
+	Enums.ATTACK_NAME.ROLLINGTHUNDER:{
+		"AtkName": "Rolling Thunder",
+		"Scene": preload("res://prefabs/attacks/rollingthunder.tscn").instantiate(),
 		"Desc": "TESTATK5"
+	},
+	Enums.ATTACK_NAME.SPARKGEYSER:{
+		"AtkName": "Spark Geyser",
+		"Scene": preload("res://prefabs/attacks/sparkgeyser.tscn").instantiate(),
+		"Desc": "TESTATK5"
+	},
+	Enums.ATTACK_NAME.CIRCUITBEAM:{
+		"AtkName": "Circuit Beam",
+		"Scene": preload("res://prefabs/attacks/sparkgeyser.tscn").instantiate(),
+		"Desc": "TestDesc"
 	}
 }
 var upgrade_names = { #Need a better way for scaling

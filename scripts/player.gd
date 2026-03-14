@@ -8,10 +8,14 @@ var energy := 100.0:
 		energy = clamp(value,0,100)
 var energyregen = 1.0
 @onready var shockwave: Attack = $Shockwave
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
 	pass
-	
+
+func _process(delta: float) -> void:
+	if not animated_sprite_2d.is_playing():
+		animated_sprite_2d.play("idle")
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	print(body)
 	body.queue_free()
@@ -30,3 +34,6 @@ func _on_energy_regen_timer_timeout() -> void:
 	energy += 1.0
 	#energy_bar.value = energy
 	#print(energy)
+
+func play_attack_anim(string):
+	animated_sprite_2d.play(string)

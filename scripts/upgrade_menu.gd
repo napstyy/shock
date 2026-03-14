@@ -3,7 +3,14 @@ extends Node
 var cards_drawn = 3
 var card_arr = []
 var node_arr = []
-var stationaryattacks = [Enums.ATTACK_NAME.THUNDERPILLAR]
+var stationaryattacks = [
+	Enums.ATTACK_NAME.THUNDERPILLAR, 
+	Enums.ATTACK_NAME.BARRIERARC, 
+	Enums.ATTACK_NAME.SPLITBOLT, 
+	Enums.ATTACK_NAME.ROLLINGTHUNDER,
+	Enums.ATTACK_NAME.SPARKGEYSER,
+	Enums.ATTACK_NAME.CIRCUITBEAM
+	]
 var pos_arr = [Vector2(160,180), Vector2(320,180), Vector2(480,180)]
 var attack_arr: Array[Enums.ATTACK_NAME] = []
 @onready var card_1: Upgrade = $Card1
