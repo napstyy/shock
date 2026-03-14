@@ -1,6 +1,8 @@
 class_name Wraith
 extends Enemy
 
+@export var spawn_from_air: bool = false
+
 func _ready() -> void:
 	super()
 	hp = 20

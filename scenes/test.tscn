@@ -2,18 +2,18 @@
 
 [ext_resource type="Texture2D" uid="uid://b7aj0qlh3gea6" path="res://assets/BGSHOCK.png" id="1_errlg"]
 [ext_resource type="Script" uid="uid://ds7ipm0r0rs28" path="res://scripts/enemy/wave.gd" id="2_at5dv"]
-[ext_resource type="PackedScene" uid="uid://b82yrmhbxwhu3" path="res://prefabs/enemies/ghost.tscn" id="2_bl13t"]
 [ext_resource type="PackedScene" uid="uid://c6m1sf4ew33xc" path="res://prefabs/enemies/wraith.tscn" id="3_74lek"]
 [ext_resource type="PackedScene" uid="uid://xtsbcs12gqpw" path="res://prefabs/enemies/spawner.tscn" id="3_iyx0m"]
 [ext_resource type="Script" uid="uid://bdlrie3xqxcv1" path="res://scripts/enemy/enemy_count.gd" id="3_jcd4p"]
 [ext_resource type="PackedScene" uid="uid://d2j2dagcw53r2" path="res://prefabs/player.tscn" id="5_j5jx5"]
+[ext_resource type="PackedScene" uid="uid://c5g03on8c8d7l" path="res://prefabs/enemies/geist.tscn" id="6_at5dv"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_errlg"]
 distance = -15.0
 
 [sub_resource type="Resource" id="Resource_aqx5k"]
 script = ExtResource("3_jcd4p")
-scene = ExtResource("2_bl13t")
+scene = ExtResource("6_at5dv")
 metadata/_custom_type_script = "uid://bdlrie3xqxcv1"
 
 [sub_resource type="Resource" id="Resource_sb33p"]

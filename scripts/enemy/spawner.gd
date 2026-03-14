@@ -30,7 +30,14 @@ func spawn() -> void:
 		return #finishes spawning everything then goes to next wave
 	var enemy = spawn_queue.pop_back().instantiate() #spawns
 	var side = [-1, 1].pick_random()
-	enemy.global_position = Vector2(320 + side * 320, 300)
+	
+	if enemy.spawn_from_air:
+		# airspawn
+		enemy.global_position = Vector2(320 + side * 320, 50)
+	else:
+		# groudnspawn
+		enemy.global_position = Vector2(320 + side * 320, 300)
+	
 	add_child(enemy)
 
 func _on_timer_timeout() -> void:
