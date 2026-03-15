@@ -17,51 +17,61 @@ var upgrade_dict = {
 	Enums.ATTACK_NAME.THUNDERPILLAR: {
 		"AtkName": "Thunder Pillar",
 		"Scene": preload("res://prefabs/attacks/thunderpillar.tscn").instantiate(),
+		"Icon": "res://assets/atkthumbnails/PillarsThumb.png",
 		"Desc": "This should never be seen"
 		},
 	Enums.ATTACK_NAME.LIGHTNINGORB: {
 		"AtkName": "Lightning Orb",
 		"Scene": preload("res://prefabs/attacks/lightningorb.tscn").instantiate(),
+		"Icon": "res://assets/atkthumbnails/LightningOrbThumb.png",
 		"Desc": "A condensed ball of lightning which bounds back and forth."
 	},
 	Enums.ATTACK_NAME.BARRIERARC:{
 		"AtkName": "Barrier Arc",
 		"Scene": preload("res://prefabs/attacks/barrierarc.tscn").instantiate(),
+		"Icon": "res://assets/atkthumbnails/BarrierArcThumb.png",
 		"Desc": "An arc of electricity that strikes the top left"
 	},
 	Enums.ATTACK_NAME.SPLITBOLT:{
 		"AtkName": "Split Bolt",
 		"Scene": preload("res://prefabs/attacks/splitbolt.tscn").instantiate(),
+		"Icon": "res://assets/atkthumbnails/SplitBoltThumb.png",
 		"Desc": "The bolt splits to hit two areas to the left"
 	},
 	Enums.ATTACK_NAME.ROLLINGTHUNDER:{
 		"AtkName": "Rolling Thunder",
 		"Scene": preload("res://prefabs/attacks/rollingthunder.tscn").instantiate(),
+		"Icon": "res://assets/atkthumbnails/RollingThunderThumb.png",
 		"Desc": "Travels along the ground to the right"
 	},
 	Enums.ATTACK_NAME.SPARKGEYSER:{
 		"AtkName": "Spark Geyser",
 		"Scene": preload("res://prefabs/attacks/sparkgeyser.tscn").instantiate(),
+		"Icon": "res://assets/atkthumbnails/SparkGeyserThumb.png",
 		"Desc": "Attacks closely to the right, and further to the left"
 	},
 	Enums.ATTACK_NAME.CIRCUITBEAM:{
 		"AtkName": "Circuit Beam",
 		"Scene": preload("res://prefabs/attacks/circuitbeam.tscn").instantiate(),
+		"Icon": "res://assets/atkthumbnails/CircuitBeamThumb.png",
 		"Desc": "Shoots a long beam diagonally to the right"
 	},
 	Enums.ATTACK_NAME.OVERLOAD:{
 		"AtkName": "Overload",
 		"Scene": preload("res://prefabs/attacks/overload.tscn").instantiate(),
+		"Icon": "res://assets/atkthumbnails/OverloadThumb.png",
 		"Desc": "High energy cost but destroys everything on the ground"
 	},
 	Enums.ATTACK_NAME.IONSTORM:{
 		"AtkName": "Ion Storm",
 		"Scene": preload("res://prefabs/attacks/ion_storm.tscn").instantiate(),
+		"Icon": "res://assets/atkthumbnails/IonStormThumb.png",
 		"Desc": "Four small orbs attack incoming airborne threats"
 	},
 	Enums.ATTACK_NAME.VOLTSPHERE:{
 		"AtkName": "Volt Sphere",
 		"Scene": preload("res://prefabs/attacks/voltsphere.tscn").instantiate(),
+		"Icon": "res://assets/atkthumbnails/VoltSphereThumb.png",
 		"Desc": "An explosive orb that strikes the top right"
 	}
 }
@@ -94,6 +104,7 @@ var atknode: Attack
 
 @onready var card_name: RichTextLabel = $NinePatchRect/CardName
 @onready var card_desc: RichTextLabel = $NinePatchRect/CardDesc
+@onready var card_img: TextureRect = $NinePatchRect/CardImg
 
 #if groups in attacks not in tree, upgrade, otherwise add to tree
 
@@ -136,10 +147,12 @@ func addUpgrade():
 		Enums.UPGRADE_TYPE.SPEED:
 			atknode.movement_speed += upgrade_names[upgrade_name]["Mod"]
 	#something, atknode.upgradename += scaling
+	#autoload 
 	menuclosed.emit()
 
 func updateLabels():
 	card_name.text = upgrade_dict[attack_name]["AtkName"]
+	card_img.texture = load(upgrade_dict[attack_name]["Icon"])
 	if is_in_tree:
 		card_desc.text = upgrade_dict[attack_name]["UpgName"] #Upgrade Names
 	else:

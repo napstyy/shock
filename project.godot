@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Shock"
+run/main_scene="uid://du38j1g3j1ncs"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
