@@ -6,6 +6,8 @@ var current_wave: int = 0
 var spawn_queue: Array[PackedScene] = []
 
 @export var time_between_waves: float = 3.0
+var upgrade_menu
+
 
 func _ready() -> void:
 	start_wave()
@@ -22,18 +24,27 @@ func start_wave() -> void:
 	timer.start()
 
 func spawn() -> void:
-	if spawn_queue.is_empty():
+	#print(get_tree().get_nodes_in_group("enemies")) #TEST
+	if spawn_queue.is_empty() and not get_tree().get_nodes_in_group("enemies").is_empty():
+		return
+	elif spawn_queue.is_empty() and get_tree().get_nodes_in_group("enemies").is_empty():
 		timer.stop()
 		current_wave += 1
-		wave_timer.wait_time = time_between_waves
-		wave_timer.start()
+		
+		#TEST
+		upgrade_menu = preload("res://prefabs/upgrademenu.tscn").instantiate()
+		get_tree().current_scene.add_child(upgrade_menu)
+		upgrade_menu.upgradeclosed.connect(_on_upgrade_closed)
+		#wave_timer.wait_time = time_between_waves
+		#wave_timer.start()
 		return #finishes spawning everything then goes to next wave
 	var enemy = spawn_queue.pop_back().instantiate() #spawns
 	var side = [-1, 1].pick_random()
 	
 	if enemy.spawn_from_air:
 		# airspawn
-		enemy.global_position = Vector2(320 + side * 320, 50)
+		enemy.global_position = Vector2(320 + side * 320, 50+float(randi_range(-50,200)))
+		print(enemy.global_position)
 	else:
 		# groudnspawn
 		enemy.global_position = Vector2(320 + side * 320, 300)
@@ -41,7 +52,12 @@ func spawn() -> void:
 	add_child(enemy)
 
 func _on_timer_timeout() -> void:
+	timer.wait_time = 1.5 + randf_range(0.3,1.3) #TEST
 	spawn()
 
 func _on_wave_timer_timeout() -> void:
 	start_wave()
+
+func _on_upgrade_closed(): #TEST
+	wave_timer.wait_time = time_between_waves
+	wave_timer.start()

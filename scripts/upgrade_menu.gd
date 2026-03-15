@@ -1,5 +1,6 @@
 extends Node
 
+signal upgradeclosed
 var cards_drawn = 3
 var card_arr = []
 var node_arr = []
@@ -100,6 +101,7 @@ func draw_upgrades(idx): #TODO: When adding attacks, if there are no new ones in
 
 func _on_menu_closed():
 	print("close_menu")
+	upgradeclosed.emit()
 	queue_free()
 
 func add_card(index, atk, upg):

@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://c5g03on8c8d7l"]
+[gd_scene format=3 uid="uid://c253fpkysf3tx"]
 
 [ext_resource type="Texture2D" uid="uid://drle2j3wwdxbw" path="res://assets/Monster3ATTACK.png" id="1_3qxr0"]
-[ext_resource type="Script" uid="uid://crqr7ps8ymb2c" path="res://scripts/enemy/geist.gd" id="1_mrlc4"]
+[ext_resource type="Script" path="res://scripts/enemy/geist.gd" id="1_mrlc4"]
 [ext_resource type="Texture2D" uid="uid://ycefrcf1mc2b" path="res://assets/Monster3MOVE.png" id="2_mrlc4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3qxr0"]
@@ -111,7 +111,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3qxr0"]
 size = Vector2(77, 31)
 
-[node name="Node2D" type="CharacterBody2D" unique_id=1473269690]
+[node name="Node2D" type="CharacterBody2D" unique_id=1473269690 groups=["enemies"]]
 collision_layer = 2
 script = ExtResource("1_mrlc4")
 

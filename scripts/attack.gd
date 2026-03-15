@@ -59,7 +59,7 @@ func _physics_process(delta: float) -> void:
 func attack_triggered():
 	if player.energy - energy_cost >= 0 and not is_attacking:
 		player.energy -= energy_cost
-		print("Attack: "+str(attack_name))
+		#print("Attack: "+str(attack_name))
 		is_attacking = true
 		player.play_attack_anim("attack"+str(attack_name))
 		attack_anim.play("attack")
@@ -115,10 +115,10 @@ func upgrade_area(val):
 			collisionarea.shape.radius += float(val)
 			
 func deal_damage():
-	print("dealt damage")
+	#print("dealt damage")
 	for areas in attack_areas:
 			var enemies = areas.get_overlapping_bodies()
-			print(enemies)
+			#print(enemies)
 			#print(areas.get_overlapping_bodies())
 			for enemy in enemies:
 				enemy.take_damage(attack_damage) #TEST

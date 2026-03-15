@@ -2,11 +2,42 @@
 
 [ext_resource type="Texture2D" uid="uid://b7aj0qlh3gea6" path="res://assets/BGSHOCK.png" id="1_8i2nt"]
 [ext_resource type="PackedScene" uid="uid://d2j2dagcw53r2" path="res://prefabs/player.tscn" id="2_kjmiq"]
+[ext_resource type="Script" uid="uid://ds7ipm0r0rs28" path="res://scripts/enemy/wave.gd" id="4_6f0nr"]
 [ext_resource type="PackedScene" uid="uid://xtsbcs12gqpw" path="res://prefabs/enemies/spawner.tscn" id="4_8mc82"]
+[ext_resource type="Script" uid="uid://bdlrie3xqxcv1" path="res://scripts/enemy/enemy_count.gd" id="5_6t5uc"]
 [ext_resource type="PackedScene" uid="uid://hq826c85glyk" path="res://prefabs/attacks/thunderpillar.tscn" id="6_acnpl"]
 [ext_resource type="PackedScene" uid="uid://c6joaewasbtbs" path="res://prefabs/energy_bar.tscn" id="6_jklrr"]
-[ext_resource type="PackedScene" uid="uid://vn3sq00h2g02" path="res://prefabs/upgrademenu.tscn" id="6_kaaju"]
+[ext_resource type="PackedScene" uid="uid://b82yrmhbxwhu3" path="res://prefabs/enemies/ghost.tscn" id="6_jptny"]
+[ext_resource type="PackedScene" uid="uid://c6m1sf4ew33xc" path="res://prefabs/enemies/wraith.tscn" id="7_eqyx2"]
 [ext_resource type="PackedScene" uid="uid://cu0ipiwx07cg6" path="res://prefabs/hp_bar.tscn" id="7_kaaju"]
+[ext_resource type="PackedScene" uid="uid://c253fpkysf3tx" path="res://prefabs/enemies/geist.tscn" id="8_enlks"]
+
+[sub_resource type="Resource" id="Resource_aqx5k"]
+script = ExtResource("5_6t5uc")
+scene = ExtResource("6_jptny")
+metadata/_custom_type_script = "uid://bdlrie3xqxcv1"
+
+[sub_resource type="Resource" id="Resource_sb33p"]
+script = ExtResource("5_6t5uc")
+scene = ExtResource("7_eqyx2")
+count = 1
+metadata/_custom_type_script = "uid://bdlrie3xqxcv1"
+
+[sub_resource type="Resource" id="Resource_k6aj0"]
+script = ExtResource("4_6f0nr")
+enemies = Array[ExtResource("5_6t5uc")]([SubResource("Resource_aqx5k"), SubResource("Resource_sb33p")])
+metadata/_custom_type_script = "uid://ds7ipm0r0rs28"
+
+[sub_resource type="Resource" id="Resource_pag38"]
+script = ExtResource("5_6t5uc")
+scene = ExtResource("8_enlks")
+count = 2
+metadata/_custom_type_script = "uid://bdlrie3xqxcv1"
+
+[sub_resource type="Resource" id="Resource_tg4va"]
+script = ExtResource("4_6f0nr")
+enemies = Array[ExtResource("5_6t5uc")]([SubResource("Resource_pag38")])
+metadata/_custom_type_script = "uid://ds7ipm0r0rs28"
 
 [node name="Test2" type="Node2D" unique_id=733101548]
 
@@ -25,14 +56,9 @@ unique_name_in_owner = true
 position = Vector2(320, 280)
 
 [node name="Spawner" parent="." unique_id=1881567075 instance=ExtResource("4_8mc82")]
+waves = Array[ExtResource("4_6f0nr")]([SubResource("Resource_k6aj0"), SubResource("Resource_tg4va")])
 
 [node name="thunderpillar" parent="." unique_id=2069167653 instance=ExtResource("6_acnpl")]
-
-[node name="upgradeMenu" parent="." unique_id=471795962 instance=ExtResource("6_kaaju")]
-offset_left = 319.0
-offset_top = 180.0
-offset_right = 319.0
-offset_bottom = 180.0
 
 [node name="EnergyBar" parent="." unique_id=1915036849 instance=ExtResource("6_jklrr")]
 

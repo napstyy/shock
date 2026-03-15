@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c6joaewasbtbs" path="res://prefabs/energy_bar.tscn" id="6_6rr2n"]
 [ext_resource type="PackedScene" uid="uid://cu0ipiwx07cg6" path="res://prefabs/hp_bar.tscn" id="7_dm2rk"]
 
-[node name="Test2" type="Node2D" unique_id=733101548]
+[node name="Main" type="Node2D" unique_id=733101548]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2060243754]
 anchors_preset = 15

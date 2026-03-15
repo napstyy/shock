@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://xtsbcs12gqpw" path="res://prefabs/enemies/spawner.tscn" id="3_iyx0m"]
 [ext_resource type="Script" uid="uid://bdlrie3xqxcv1" path="res://scripts/enemy/enemy_count.gd" id="3_jcd4p"]
 [ext_resource type="PackedScene" uid="uid://d2j2dagcw53r2" path="res://prefabs/player.tscn" id="5_j5jx5"]
-[ext_resource type="PackedScene" uid="uid://c5g03on8c8d7l" path="res://prefabs/enemies/geist.tscn" id="6_at5dv"]
+[ext_resource type="PackedScene" uid="uid://c253fpkysf3tx" path="res://prefabs/enemies/geist.tscn" id="6_at5dv"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_errlg"]
 distance = -15.0
