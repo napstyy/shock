@@ -213,6 +213,8 @@ script = ExtResource("1_qqgyx")
 attack_name = 7
 attack_areas = [NodePath("Area2D")]
 area_growth = 1
+attack_damage = 100
+energy_cost = 25
 attack_anim = NodePath("AnimationPlayer")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1562161197]

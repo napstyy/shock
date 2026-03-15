@@ -284,9 +284,11 @@ script = ExtResource("1_0w3rm")
 attack_name = 10
 attack_areas = [NodePath("Area2D")]
 attack_damage = 100
+energy_cost = 30
 attack_anim = NodePath("AnimationPlayer")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=824566362]
+visible = false
 position = Vector2(347, 180)
 sprite_frames = SubResource("SpriteFrames_111xi")
 

@@ -2,6 +2,8 @@ extends Node2D
 @export var waves: Array[Wave]
 @onready var timer: Timer = $Timer
 @onready var wave_timer: Timer = $WaveTimer
+@onready var wave_label: RichTextLabel = $RichTextLabel
+
 var current_wave: int = 0
 var spawn_queue: Array[PackedScene] = []
 
@@ -32,6 +34,10 @@ func spawn() -> void:
 		current_wave += 1
 		
 		#TEST
+		if current_wave == 10:
+			wave_label.text = "You win!"
+			wave_label.visible = true
+			return #TEST Probably bring up game over screen
 		upgrade_menu = preload("res://prefabs/upgrademenu.tscn").instantiate()
 		get_tree().current_scene.add_child(upgrade_menu)
 		upgrade_menu.upgradeclosed.connect(_on_upgrade_closed)
@@ -56,8 +62,11 @@ func _on_timer_timeout() -> void:
 	spawn()
 
 func _on_wave_timer_timeout() -> void:
+	wave_label.visible = false #TEST
 	start_wave()
 
 func _on_upgrade_closed(): #TEST
 	wave_timer.wait_time = time_between_waves
 	wave_timer.start()
+	wave_label.text = "Wave " + str(current_wave+1)
+	wave_label.visible = true

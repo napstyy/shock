@@ -10,33 +10,60 @@
 [ext_resource type="PackedScene" uid="uid://b82yrmhbxwhu3" path="res://prefabs/enemies/ghost.tscn" id="6_jptny"]
 [ext_resource type="PackedScene" uid="uid://c6m1sf4ew33xc" path="res://prefabs/enemies/wraith.tscn" id="7_eqyx2"]
 [ext_resource type="PackedScene" uid="uid://cu0ipiwx07cg6" path="res://prefabs/hp_bar.tscn" id="7_kaaju"]
-[ext_resource type="PackedScene" uid="uid://c253fpkysf3tx" path="res://prefabs/enemies/geist.tscn" id="8_enlks"]
 
 [sub_resource type="Resource" id="Resource_aqx5k"]
 script = ExtResource("5_6t5uc")
 scene = ExtResource("6_jptny")
-metadata/_custom_type_script = "uid://bdlrie3xqxcv1"
-
-[sub_resource type="Resource" id="Resource_sb33p"]
-script = ExtResource("5_6t5uc")
-scene = ExtResource("7_eqyx2")
-count = 1
+count = 3
 metadata/_custom_type_script = "uid://bdlrie3xqxcv1"
 
 [sub_resource type="Resource" id="Resource_k6aj0"]
 script = ExtResource("4_6f0nr")
-enemies = Array[ExtResource("5_6t5uc")]([SubResource("Resource_aqx5k"), SubResource("Resource_sb33p")])
+enemies = Array[ExtResource("5_6t5uc")]([SubResource("Resource_aqx5k")])
 metadata/_custom_type_script = "uid://ds7ipm0r0rs28"
+
+[sub_resource type="Resource" id="Resource_ys1qx"]
+script = ExtResource("5_6t5uc")
+scene = ExtResource("6_jptny")
+count = 7
+metadata/_custom_type_script = "uid://bdlrie3xqxcv1"
+
+[sub_resource type="Resource" id="Resource_6f0nr"]
+script = ExtResource("4_6f0nr")
+enemies = Array[ExtResource("5_6t5uc")]([SubResource("Resource_ys1qx")])
+metadata/_custom_type_script = "uid://ds7ipm0r0rs28"
+
+[sub_resource type="Resource" id="Resource_6t5uc"]
+script = ExtResource("5_6t5uc")
+scene = ExtResource("7_eqyx2")
+metadata/_custom_type_script = "uid://bdlrie3xqxcv1"
+
+[sub_resource type="Resource" id="Resource_jptny"]
+script = ExtResource("5_6t5uc")
+scene = ExtResource("6_jptny")
+count = 2
+metadata/_custom_type_script = "uid://bdlrie3xqxcv1"
+
+[sub_resource type="Resource" id="Resource_eqyx2"]
+script = ExtResource("4_6f0nr")
+enemies = Array[ExtResource("5_6t5uc")]([SubResource("Resource_6t5uc"), SubResource("Resource_jptny")])
+metadata/_custom_type_script = "uid://ds7ipm0r0rs28"
+
+[sub_resource type="Resource" id="Resource_enlks"]
+script = ExtResource("5_6t5uc")
+scene = ExtResource("6_jptny")
+count = 6
+metadata/_custom_type_script = "uid://bdlrie3xqxcv1"
 
 [sub_resource type="Resource" id="Resource_pag38"]
 script = ExtResource("5_6t5uc")
-scene = ExtResource("8_enlks")
-count = 2
+scene = ExtResource("7_eqyx2")
+count = 6
 metadata/_custom_type_script = "uid://bdlrie3xqxcv1"
 
 [sub_resource type="Resource" id="Resource_tg4va"]
 script = ExtResource("4_6f0nr")
-enemies = Array[ExtResource("5_6t5uc")]([SubResource("Resource_pag38")])
+enemies = Array[ExtResource("5_6t5uc")]([SubResource("Resource_enlks"), SubResource("Resource_pag38")])
 metadata/_custom_type_script = "uid://ds7ipm0r0rs28"
 
 [node name="Test2" type="Node2D" unique_id=733101548]
@@ -56,7 +83,7 @@ unique_name_in_owner = true
 position = Vector2(320, 280)
 
 [node name="Spawner" parent="." unique_id=1881567075 instance=ExtResource("4_8mc82")]
-waves = Array[ExtResource("4_6f0nr")]([SubResource("Resource_k6aj0"), SubResource("Resource_tg4va")])
+waves = Array[ExtResource("4_6f0nr")]([SubResource("Resource_k6aj0"), SubResource("Resource_6f0nr"), SubResource("Resource_eqyx2"), SubResource("Resource_tg4va")])
 
 [node name="thunderpillar" parent="." unique_id=2069167653 instance=ExtResource("6_acnpl")]
 

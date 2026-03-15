@@ -103,10 +103,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kaaju"]
-size = Vector2(20, 60)
+size = Vector2(20, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vcsrw"]
-size = Vector2(20, 60)
+size = Vector2(20, 100)
 
 [sub_resource type="Animation" id="Animation_jklrr"]
 length = 0.001
@@ -169,7 +169,7 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.7),
+"times": PackedFloat32Array(0.65),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -183,19 +183,25 @@ _data = {
 &"attack": SubResource("Animation_kaaju")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84teo"]
+size = Vector2(20, 130)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tgpv8"]
+size = Vector2(20, 70)
+
 [node name="splitbolt" type="Node2D" unique_id=629320727 node_paths=PackedStringArray("attack_areas", "attack_anim") groups=["attacks"]]
 script = ExtResource("1_84teo")
 attack_name = 4
-attack_areas = [NodePath("Larea"), NodePath("Rarea")]
+attack_areas = [NodePath("Larea"), NodePath("Rarea"), NodePath("ULArea2D"), NodePath("URArea2D2")]
 area_growth = 1
 attack_damage = 30
+energy_cost = 25
 attack_anim = NodePath("AnimationPlayer")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1767364698]
 visible = false
 position = Vector2(347, 180)
 sprite_frames = SubResource("SpriteFrames_sgwgh")
-frame = 12
 
 [node name="Larea" type="Area2D" parent="." unique_id=1316313214]
 position = Vector2(98, 292)
@@ -215,3 +221,22 @@ shape = SubResource("RectangleShape2D_vcsrw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=485392469]
 libraries/ = SubResource("AnimationLibrary_vcsrw")
+
+[node name="ULArea2D" type="Area2D" parent="." unique_id=2078809777]
+position = Vector2(128, 212)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ULArea2D" unique_id=1425996030]
+position = Vector2(4, -1)
+rotation = 1.134464
+shape = SubResource("RectangleShape2D_84teo")
+
+[node name="URArea2D2" type="Area2D" parent="." unique_id=1123994558]
+position = Vector2(222, 213)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="URArea2D2" unique_id=121950730]
+rotation = -0.5358161
+shape = SubResource("RectangleShape2D_tgpv8")

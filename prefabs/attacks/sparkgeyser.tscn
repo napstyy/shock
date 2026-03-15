@@ -210,9 +210,11 @@ attack_name = 6
 attack_areas = [NodePath("AnimatedSprite2D/Area2D"), NodePath("AnimatedSprite2D/Area2D2")]
 area_growth = 1
 attack_damage = 50
+energy_cost = 40
 attack_anim = NodePath("AnimationPlayer")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=329245543]
+visible = false
 position = Vector2(347, 180)
 sprite_frames = SubResource("SpriteFrames_vl101")
 

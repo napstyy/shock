@@ -393,7 +393,7 @@ script = ExtResource("1_3exds")
 attack_name = 1
 attack_areas = [NodePath("LPillar"), NodePath("RPillar")]
 attack_damage = 20
-energy_cost = 30
+energy_cost = 50
 attack_anim = NodePath("AnimationPlayer")
 
 [node name="LPillar" type="Area2D" parent="." unique_id=1699175628]

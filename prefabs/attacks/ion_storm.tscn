@@ -243,13 +243,13 @@ script = ExtResource("1_vdm6a")
 attack_name = 9
 attack_areas = [NodePath("Area2D"), NodePath("Area2D2"), NodePath("Area2D3"), NodePath("Area2D4")]
 attack_damage = 100
+energy_cost = 15
 attack_anim = NodePath("AnimationPlayer")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1944547156]
 visible = false
 position = Vector2(320, 180)
 sprite_frames = SubResource("SpriteFrames_n4bxf")
-frame = 19
 
 [node name="Area2D" type="Area2D" parent="." unique_id=155938459]
 position = Vector2(130, 177)

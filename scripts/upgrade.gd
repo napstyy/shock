@@ -74,10 +74,10 @@ var upgrade_names = { #Need a better way for scaling
 		"Name": "Area",
 		"Mod": 5
 		},
-	Enums.UPGRADE_TYPE.DAMAGE: {
-		"Name": "Damage",
-		"Mod": 5
-			},
+	#Enums.UPGRADE_TYPE.DAMAGE: {
+		#"Name": "Damage",
+		#"Mod": 5
+			#},
 	Enums.UPGRADE_TYPE.ENERGYCOST: {
 		"Name": "Energy Cost",
 		"Mod": -5
@@ -129,8 +129,8 @@ func addUpgrade():
 	match upgrade_name:
 		Enums.UPGRADE_TYPE.AREA:
 			atknode.upgrade_area(upgrade_names[upgrade_name]["Mod"])
-		Enums.UPGRADE_TYPE.DAMAGE:
-			atknode.attack_damage += upgrade_names[upgrade_name]["Mod"] #TODO: Scale this per atk maybe
+		#Enums.UPGRADE_TYPE.DAMAGE:
+			#atknode.attack_damage += upgrade_names[upgrade_name]["Mod"] #TODO: Scale this per atk maybe
 		Enums.UPGRADE_TYPE.ENERGYCOST:
 			atknode.energy_cost += upgrade_names[upgrade_name]["Mod"]
 		Enums.UPGRADE_TYPE.SPEED:
