@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://lgqplwhtkwx2" path="res://scripts/enemy/wraith.gd" id="1_g0dij"]
 [ext_resource type="Texture2D" uid="uid://reacvrj8fcg" path="res://assets/Walker.png" id="2_uk3y5"]
+[ext_resource type="Texture2D" uid="uid://dgulj2emvcpn" path="res://assets/WalkerDEATH.png" id="3_4witf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e8vgv"]
 size = Vector2(70.18707, 35.048637)
@@ -40,6 +41,66 @@ region = Rect2(1781, 0, 137, 157)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0unno"]
 atlas = ExtResource("2_uk3y5")
+region = Rect2(1918, 0, 137, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehgkh"]
+atlas = ExtResource("3_4witf")
+region = Rect2(0, 0, 137, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_llh8d"]
+atlas = ExtResource("3_4witf")
+region = Rect2(137, 0, 137, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbr6f"]
+atlas = ExtResource("3_4witf")
+region = Rect2(274, 0, 137, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukigl"]
+atlas = ExtResource("3_4witf")
+region = Rect2(411, 0, 137, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3klc"]
+atlas = ExtResource("3_4witf")
+region = Rect2(548, 0, 137, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tv4eo"]
+atlas = ExtResource("3_4witf")
+region = Rect2(685, 0, 137, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8070r"]
+atlas = ExtResource("3_4witf")
+region = Rect2(822, 0, 137, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkhci"]
+atlas = ExtResource("3_4witf")
+region = Rect2(959, 0, 137, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebwrr"]
+atlas = ExtResource("3_4witf")
+region = Rect2(1096, 0, 137, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odstl"]
+atlas = ExtResource("3_4witf")
+region = Rect2(1233, 0, 137, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvx7p"]
+atlas = ExtResource("3_4witf")
+region = Rect2(1370, 0, 137, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rj4if"]
+atlas = ExtResource("3_4witf")
+region = Rect2(1507, 0, 137, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gna7n"]
+atlas = ExtResource("3_4witf")
+region = Rect2(1644, 0, 137, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55iox"]
+atlas = ExtResource("3_4witf")
+region = Rect2(1781, 0, 137, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bg07"]
+atlas = ExtResource("3_4witf")
 region = Rect2(1918, 0, 137, 157)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4witf"]
@@ -102,6 +163,56 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ehgkh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_llh8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbr6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukigl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3klc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tv4eo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8070r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkhci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ebwrr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odstl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvx7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rj4if")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gna7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55iox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bg07")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_4witf")
 }, {
 "duration": 1.0,
@@ -137,5 +248,6 @@ shape = SubResource("RectangleShape2D_e8vgv")
 position = Vector2(6.000001, -26)
 scale = Vector2(-0.764, 0.764)
 sprite_frames = SubResource("SpriteFrames_svn7x")
-animation = &"walk"
-frame_progress = 0.6670342
+animation = &"death"
+frame = 7
+frame_progress = 0.7428243
