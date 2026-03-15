@@ -24,7 +24,8 @@ func _process(delta: float) -> void:
 		animated_sprite_2d.play("idle")
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	print(body)
-	body.queue_free()
+	#body.queue_free()
+	body.attack()
 	health -= 1
 	shockwave.attack_triggered()
 	if health <= 0:

@@ -14,6 +14,8 @@ func move(target_pos: Vector2) -> void:
 	velocity = direction * speed
 	move_and_slide()
 
+func attack() -> void:
+	$AnimatedSprite2D.play("attack")
 
 func _physics_process(delta: float) -> void:
 	move(player.global_position)

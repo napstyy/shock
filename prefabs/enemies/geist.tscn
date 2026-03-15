@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c253fpkysf3tx"]
 
 [ext_resource type="Texture2D" uid="uid://drle2j3wwdxbw" path="res://assets/Monster3ATTACK.png" id="1_3qxr0"]
-[ext_resource type="Script" path="res://scripts/enemy/geist.gd" id="1_mrlc4"]
+[ext_resource type="Script" uid="uid://crqr7ps8ymb2c" path="res://scripts/enemy/geist.gd" id="1_mrlc4"]
 [ext_resource type="Texture2D" uid="uid://ycefrcf1mc2b" path="res://assets/Monster3MOVE.png" id="2_mrlc4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3qxr0"]
@@ -74,7 +74,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mu5a0")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 5.0
 }, {
@@ -118,8 +118,7 @@ script = ExtResource("1_mrlc4")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=54412929]
 position = Vector2(0, 16)
 sprite_frames = SubResource("SpriteFrames_0k3jy")
-animation = &"walk"
-frame_progress = 0.13560876
+animation = &"attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1750706472]
 position = Vector2(-2.5, 0.5)

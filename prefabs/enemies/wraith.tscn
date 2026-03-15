@@ -43,10 +43,6 @@ region = Rect2(1781, 0, 137, 157)
 atlas = ExtResource("2_uk3y5")
 region = Rect2(1918, 0, 137, 157)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ehgkh"]
-atlas = ExtResource("3_4witf")
-region = Rect2(0, 0, 137, 157)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_llh8d"]
 atlas = ExtResource("3_4witf")
 region = Rect2(137, 0, 137, 157)
@@ -54,54 +50,6 @@ region = Rect2(137, 0, 137, 157)
 [sub_resource type="AtlasTexture" id="AtlasTexture_wbr6f"]
 atlas = ExtResource("3_4witf")
 region = Rect2(274, 0, 137, 157)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ukigl"]
-atlas = ExtResource("3_4witf")
-region = Rect2(411, 0, 137, 157)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e3klc"]
-atlas = ExtResource("3_4witf")
-region = Rect2(548, 0, 137, 157)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tv4eo"]
-atlas = ExtResource("3_4witf")
-region = Rect2(685, 0, 137, 157)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8070r"]
-atlas = ExtResource("3_4witf")
-region = Rect2(822, 0, 137, 157)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nkhci"]
-atlas = ExtResource("3_4witf")
-region = Rect2(959, 0, 137, 157)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ebwrr"]
-atlas = ExtResource("3_4witf")
-region = Rect2(1096, 0, 137, 157)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_odstl"]
-atlas = ExtResource("3_4witf")
-region = Rect2(1233, 0, 137, 157)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cvx7p"]
-atlas = ExtResource("3_4witf")
-region = Rect2(1370, 0, 137, 157)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rj4if"]
-atlas = ExtResource("3_4witf")
-region = Rect2(1507, 0, 137, 157)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gna7n"]
-atlas = ExtResource("3_4witf")
-region = Rect2(1644, 0, 137, 157)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_55iox"]
-atlas = ExtResource("3_4witf")
-region = Rect2(1781, 0, 137, 157)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6bg07"]
-atlas = ExtResource("3_4witf")
-region = Rect2(1918, 0, 137, 157)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4witf"]
 atlas = ExtResource("2_uk3y5")
@@ -157,13 +105,16 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0unno")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ehgkh")
+"texture": SubResource("AtlasTexture_llh8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbr6f")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_llh8d")
@@ -172,42 +123,24 @@ animations = [{
 "texture": SubResource("AtlasTexture_wbr6f")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ukigl")
+"texture": SubResource("AtlasTexture_llh8d")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e3klc")
+"texture": SubResource("AtlasTexture_wbr6f")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tv4eo")
+"texture": SubResource("AtlasTexture_llh8d")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8070r")
+"texture": SubResource("AtlasTexture_wbr6f")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nkhci")
+"texture": SubResource("AtlasTexture_llh8d")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ebwrr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_odstl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cvx7p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rj4if")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gna7n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_55iox")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6bg07")
+"texture": SubResource("AtlasTexture_wbr6f")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -248,6 +181,4 @@ shape = SubResource("RectangleShape2D_e8vgv")
 position = Vector2(6.000001, -26)
 scale = Vector2(-0.764, 0.764)
 sprite_frames = SubResource("SpriteFrames_svn7x")
-animation = &"death"
-frame = 7
-frame_progress = 0.7428243
+animation = &"attack"
