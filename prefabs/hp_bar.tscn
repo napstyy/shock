@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cu0ipiwx07cg6"]
+
+[ext_resource type="Texture2D" uid="uid://bsuvr6tgis3h0" path="res://assets/hpbar.png" id="1_4p71c"]
+[ext_resource type="Script" uid="uid://c63lss8lb2j5c" path="res://scripts/hp_bar.gd" id="2_2wo77"]
+
+[node name="HPBar" type="TextureProgressBar" unique_id=1589258921]
+z_index = 5
+offset_left = 150.0
+offset_top = 334.0
+offset_right = 246.0
+offset_bottom = 374.0
+step = 20.0
+value = 100.0
+texture_progress = ExtResource("1_4p71c")
+script = ExtResource("2_2wo77")

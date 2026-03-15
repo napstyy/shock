@@ -137,5 +137,5 @@ shape = SubResource("RectangleShape2D_e8vgv")
 position = Vector2(6.000001, -26)
 scale = Vector2(-0.764, 0.764)
 sprite_frames = SubResource("SpriteFrames_svn7x")
-animation = &"attack"
-frame_progress = 0.7139431
+animation = &"walk"
+frame_progress = 0.6670342

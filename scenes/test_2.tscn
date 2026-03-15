@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://d2j2dagcw53r2" path="res://prefabs/player.tscn" id="2_kjmiq"]
 [ext_resource type="PackedScene" uid="uid://xtsbcs12gqpw" path="res://prefabs/enemies/spawner.tscn" id="4_8mc82"]
 [ext_resource type="PackedScene" uid="uid://hq826c85glyk" path="res://prefabs/attacks/thunderpillar.tscn" id="6_acnpl"]
+[ext_resource type="PackedScene" uid="uid://c6joaewasbtbs" path="res://prefabs/energy_bar.tscn" id="6_jklrr"]
 [ext_resource type="PackedScene" uid="uid://vn3sq00h2g02" path="res://prefabs/upgrademenu.tscn" id="6_kaaju"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_jbt8q"]
+[ext_resource type="PackedScene" uid="uid://cu0ipiwx07cg6" path="res://prefabs/hp_bar.tscn" id="7_kaaju"]
 
 [node name="Test2" type="Node2D" unique_id=733101548]
 
@@ -35,12 +35,6 @@ offset_top = 180.0
 offset_right = 319.0
 offset_bottom = 180.0
 
-[node name="Node2D" type="Node2D" parent="." unique_id=384596527]
+[node name="EnergyBar" parent="." unique_id=1915036849 instance=ExtResource("6_jklrr")]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D" unique_id=173556437]
-sprite_frames = SubResource("SpriteFrames_jbt8q")
-frame_progress = 0.6249999
-
-[node name="Area2D" type="Area2D" parent="Node2D" unique_id=1149399918]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D" unique_id=140721602]
+[node name="HPBar" parent="." unique_id=1589258921 instance=ExtResource("7_kaaju")]

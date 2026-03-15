@@ -1,11 +1,17 @@
 extends Node2D
 
 #@export var energy_bar: TextureProgressBar
+signal energychanged(nrg)
+signal hpchanged(hp)
 
-var health := 5
+var health := 5:
+	set(value):
+		health = value
+		hpchanged.emit(health)
 var energy := 100.0:
 	set(value):
 		energy = clamp(value,0,100)
+		energychanged.emit(energy)
 var energyregen = 1.0
 @onready var shockwave: Attack = $Shockwave
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D

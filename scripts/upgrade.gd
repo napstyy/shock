@@ -46,7 +46,22 @@ var upgrade_dict = {
 	},
 	Enums.ATTACK_NAME.CIRCUITBEAM:{
 		"AtkName": "Circuit Beam",
-		"Scene": preload("res://prefabs/attacks/sparkgeyser.tscn").instantiate(),
+		"Scene": preload("res://prefabs/attacks/circuitbeam.tscn").instantiate(),
+		"Desc": "TestDesc"
+	},
+	Enums.ATTACK_NAME.OVERLOAD:{
+		"AtkName": "Overload",
+		"Scene": preload("res://prefabs/attacks/overload.tscn").instantiate(),
+		"Desc": "TestDesc"
+	},
+	Enums.ATTACK_NAME.IONSTORM:{
+		"AtkName": "Ion Storm",
+		"Scene": preload("res://prefabs/attacks/ion_storm.tscn").instantiate(),
+		"Desc": "TestDesc"
+	},
+	Enums.ATTACK_NAME.VOLTSPHERE:{
+		"AtkName": "Volt Sphere",
+		"Scene": preload("res://prefabs/attacks/voltsphere.tscn").instantiate(),
 		"Desc": "TestDesc"
 	}
 }
