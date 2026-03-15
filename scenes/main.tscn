@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://d2j2dagcw53r2" path="res://prefabs/player.tscn" id="2_ur0pu"]
 [ext_resource type="PackedScene" uid="uid://xtsbcs12gqpw" path="res://prefabs/enemies/spawner.tscn" id="3_1wh1u"]
 [ext_resource type="PackedScene" uid="uid://hq826c85glyk" path="res://prefabs/attacks/thunderpillar.tscn" id="4_yfd0k"]
-[ext_resource type="PackedScene" uid="uid://vn3sq00h2g02" path="res://prefabs/upgrademenu.tscn" id="5_mkj8x"]
 [ext_resource type="PackedScene" uid="uid://c6joaewasbtbs" path="res://prefabs/energy_bar.tscn" id="6_6rr2n"]
 [ext_resource type="PackedScene" uid="uid://cu0ipiwx07cg6" path="res://prefabs/hp_bar.tscn" id="7_dm2rk"]
 
@@ -27,13 +26,6 @@ position = Vector2(320, 280)
 [node name="Spawner" parent="." unique_id=1881567075 instance=ExtResource("3_1wh1u")]
 
 [node name="thunderpillar" parent="." unique_id=2069167653 instance=ExtResource("4_yfd0k")]
-
-[node name="upgradeMenu" parent="." unique_id=471795962 instance=ExtResource("5_mkj8x")]
-visible = false
-offset_left = 319.0
-offset_top = 180.0
-offset_right = 319.0
-offset_bottom = 180.0
 
 [node name="EnergyBar" parent="." unique_id=1915036849 instance=ExtResource("6_6rr2n")]
 
