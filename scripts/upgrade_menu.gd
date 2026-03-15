@@ -116,7 +116,7 @@ func randomize_attack():
 func randomize_owned_attack():
 	var randomatk = RandomNumberGenerator.new().randi_range(0,attack_arr.size()-1)
 	#var randomatk= Enums.ATTACK_NAME.find_key(randomatkidx)
-	return randomatk
+	return attack_arr[randomatk]
 
 func randomize_upgrade():
 	var randomupg = RandomNumberGenerator.new().randi_range(1,Enums.UPGRADE_TYPE.size()-1)

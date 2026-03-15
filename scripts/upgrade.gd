@@ -27,42 +27,42 @@ var upgrade_dict = {
 	Enums.ATTACK_NAME.BARRIERARC:{
 		"AtkName": "Barrier Arc",
 		"Scene": preload("res://prefabs/attacks/barrierarc.tscn").instantiate(),
-		"Desc": "TestDesc"
+		"Desc": "An arc of electricity that strikes the top left"
 	},
 	Enums.ATTACK_NAME.SPLITBOLT:{
 		"AtkName": "Split Bolt",
 		"Scene": preload("res://prefabs/attacks/splitbolt.tscn").instantiate(),
-		"Desc": "TestDesc"
+		"Desc": "The bolt splits to hit two areas to the left"
 	},
 	Enums.ATTACK_NAME.ROLLINGTHUNDER:{
 		"AtkName": "Rolling Thunder",
 		"Scene": preload("res://prefabs/attacks/rollingthunder.tscn").instantiate(),
-		"Desc": "TESTATK5"
+		"Desc": "Travels along the ground to the right"
 	},
 	Enums.ATTACK_NAME.SPARKGEYSER:{
 		"AtkName": "Spark Geyser",
 		"Scene": preload("res://prefabs/attacks/sparkgeyser.tscn").instantiate(),
-		"Desc": "TESTATK5"
+		"Desc": "Attacks closely to the right, and further to the left"
 	},
 	Enums.ATTACK_NAME.CIRCUITBEAM:{
 		"AtkName": "Circuit Beam",
 		"Scene": preload("res://prefabs/attacks/circuitbeam.tscn").instantiate(),
-		"Desc": "TestDesc"
+		"Desc": "Shoots a long beam diagonally to the right"
 	},
 	Enums.ATTACK_NAME.OVERLOAD:{
 		"AtkName": "Overload",
 		"Scene": preload("res://prefabs/attacks/overload.tscn").instantiate(),
-		"Desc": "TestDesc"
+		"Desc": "High energy cost but destroys everything on the ground"
 	},
 	Enums.ATTACK_NAME.IONSTORM:{
 		"AtkName": "Ion Storm",
 		"Scene": preload("res://prefabs/attacks/ion_storm.tscn").instantiate(),
-		"Desc": "TestDesc"
+		"Desc": "Four small orbs attack incoming airborne threats"
 	},
 	Enums.ATTACK_NAME.VOLTSPHERE:{
 		"AtkName": "Volt Sphere",
 		"Scene": preload("res://prefabs/attacks/voltsphere.tscn").instantiate(),
-		"Desc": "TestDesc"
+		"Desc": "An explosive orb that strikes the top right"
 	}
 }
 var upgrade_names = { #Need a better way for scaling

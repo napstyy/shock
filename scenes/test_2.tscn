@@ -29,7 +29,6 @@ position = Vector2(320, 280)
 [node name="thunderpillar" parent="." unique_id=2069167653 instance=ExtResource("6_acnpl")]
 
 [node name="upgradeMenu" parent="." unique_id=471795962 instance=ExtResource("6_kaaju")]
-visible = false
 offset_left = 319.0
 offset_top = 180.0
 offset_right = 319.0
