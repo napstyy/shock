@@ -110,7 +110,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kaaju"]
-size = Vector2(90, 40)
+size = Vector2(100, 50)
 
 [sub_resource type="Animation" id="Animation_jklrr"]
 length = 0.001
@@ -202,7 +202,7 @@ position = Vector2(347, 180)
 sprite_frames = SubResource("SpriteFrames_qu37g")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=860595544]
-position = Vector2(425, 297)
+position = Vector2(418, 296)
 collision_layer = 4
 collision_mask = 2
 

@@ -50,7 +50,7 @@ func spawn() -> void:
 	if enemy.spawn_from_air:
 		# airspawn
 		enemy.global_position = Vector2(320 + side * 320, 50+float(randi_range(-50,200)))
-		print(enemy.global_position)
+		#print(enemy.global_position)
 	else:
 		# groudnspawn
 		enemy.global_position = Vector2(320 + side * 320, 300)

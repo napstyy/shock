@@ -67,12 +67,15 @@ func draw_upgrades(idx): #TODO: When adding attacks, if there are no new ones in
 					randomupg = rerandomize_upgrade(randomatk)
 				while has_card_upg(randomatk,randomupg):
 					randomupg = rerandomize_upgrade(randomatk)
-
+				
+				if randomupg == -1:#TEST
+					draw_upgrades(idx)
 				#node_arr[idx].attack_name = randomatk
 				#node_arr[idx].upgrade_name = randomupg
 				#node_arr[idx].setup()
 				#card_arr.append(node_arr[idx])
-				add_card(idx,randomatk,randomupg)
+				else:
+					add_card(idx,randomatk,randomupg)
 			else:
 				#add attack #TODO also check against others cards previously drawn
 				#attack_arr.append(randomatk) #append after choosing
@@ -93,11 +96,14 @@ func draw_upgrades(idx): #TODO: When adding attacks, if there are no new ones in
 					randomupg = rerandomize_upgrade(randomatk)
 			while has_card_upg(randomatk,randomupg):
 					randomupg = rerandomize_upgrade(randomatk)
+			if randomupg == -1:
+				draw_upgrades(idx)
 			#node_arr[idx].attack_name = randomatk
 			#node_arr[idx].upgrade_name = randomupg
 			#node_arr[idx].setup()
 			#card_arr.append(node_arr[idx])
-			add_card(idx,randomatk,randomupg)
+			else:
+				add_card(idx,randomatk,randomupg)
 
 func _on_menu_closed():
 	print("close_menu")
@@ -153,8 +159,9 @@ func rerandomize_upgrade(atk):
 				var idx = tempupgarr.find(x.upgrade_name)
 				tempupgarr.pop_at(idx)
 	tempupgarr.pop_at(0) #Get rid of none
-	if tempupgarr.is_empty():
+	if tempupgarr.is_empty(): #TEST
 		print("NO MORE ATTACKS REMAINING")
+		return -1
 	return tempupgarr.pick_random()
 
 func has_card(atk):
