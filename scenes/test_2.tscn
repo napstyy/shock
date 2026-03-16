@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b82yrmhbxwhu3" path="res://prefabs/enemies/ghost.tscn" id="6_jptny"]
 [ext_resource type="PackedScene" uid="uid://c6m1sf4ew33xc" path="res://prefabs/enemies/wraith.tscn" id="7_eqyx2"]
 [ext_resource type="PackedScene" uid="uid://cu0ipiwx07cg6" path="res://prefabs/hp_bar.tscn" id="7_kaaju"]
+[ext_resource type="FontFile" uid="uid://bukguo81riwbo" path="res://assets/fonts/Jacquard24-Regular.ttf" id="11_6f0nr"]
 
 [sub_resource type="Resource" id="Resource_aqx5k"]
 script = ExtResource("5_6t5uc")
@@ -90,3 +91,9 @@ waves = Array[ExtResource("4_6f0nr")]([SubResource("Resource_k6aj0"), SubResourc
 [node name="EnergyBar" parent="." unique_id=1915036849 instance=ExtResource("6_jklrr")]
 
 [node name="HPBar" parent="." unique_id=1589258921 instance=ExtResource("7_kaaju")]
+
+[node name="Label" type="Label" parent="." unique_id=378960233]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.039215688, 0.16078432, 0.22745098, 1)
+theme_override_fonts/font = ExtResource("11_6f0nr")

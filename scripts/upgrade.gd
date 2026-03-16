@@ -121,7 +121,7 @@ func _ready() -> void:
 			#is_in_tree = true
 			#atknode = attacks
 	#upgrade_dict[attack_name]["UpgName"] = upgrade_names[upgrade_name]["Name"] + "\n+"+ str(upgrade_names[upgrade_name]["Mod"])
-	##print(upgrade_dict)
+	#print(upgrade_dict)
 	#updateLabels()
 	pass
 
@@ -140,18 +140,18 @@ func addAttack(): #TODO need to test
 
 
 func _add_attack_icon():
+	print("working")
 	var attack_slots = get_node("/root/Main/AttackSlots") #finds hbox
 	
 	if attack_slots == null:
 		push_error("attacks not found bro")
 		return
-
-	var slot_index = attack_slots.get_child_count() + 2
+	var slot_index = attack_slots.get_child_count() + 1
 	#its +2 bc we always start with pillars
 
 	#adding vbox to add numbers near the icons
 	var vbox = VBoxContainer.new()
-	vbox.custom_minimum_size = Vector2(32, 40)
+	vbox.custom_minimum_size = Vector2(32, 32)
 	vbox.add_theme_constant_override("separation", 0)#ts removes the lil gap
 	#
 	#create the icon and load the text
@@ -159,14 +159,16 @@ func _add_attack_icon():
 	icon.texture = load(upgrade_dict[attack_name]["Icon"])
 	icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	icon.custom_minimum_size = Vector2(32, 32)
+	icon.custom_minimum_size = Vector2(20, 20)
 
 	#number label stuff
 	var label = Label.new()
 	label.text = str(slot_index)
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	label.add_theme_color_override("font_color", Color.BLACK)
-	label.add_theme_font_size_override("font_size", 10)
+	label.add_theme_color_override("font_color", Color(0.03,0.16,0.22))
+	var font = load("res://assets/fonts/Jacquard24-Regular.ttf")
+	label.add_theme_font_override("font", font)
+	label.add_theme_font_size_override("font_size", 12)
 
 	#building the icon
 	vbox.add_child(icon)
