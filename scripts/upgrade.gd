@@ -151,7 +151,7 @@ func _add_attack_icon():
 
 	#adding vbox to add numbers near the icons
 	var vbox = VBoxContainer.new()
-	vbox.custom_minimum_size = Vector2(32, 32)
+	vbox.custom_minimum_size = Vector2(24, 32)
 	vbox.add_theme_constant_override("separation", 0)#ts removes the lil gap
 	#
 	#create the icon and load the text
