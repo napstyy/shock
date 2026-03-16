@@ -195,7 +195,7 @@ attack_name = 4
 attack_areas = [NodePath("Larea"), NodePath("Rarea"), NodePath("ULArea2D"), NodePath("URArea2D2")]
 area_growth = 1
 attack_damage = 30
-energy_cost = 25
+energy_cost = 30
 attack_anim = NodePath("AnimationPlayer")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1767364698]

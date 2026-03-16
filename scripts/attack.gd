@@ -116,6 +116,7 @@ func upgrade_area(val):
 			
 func deal_damage():
 	#print("dealt damage")
+	Sfx.play()
 	for areas in attack_areas:
 			var enemies = areas.get_overlapping_bodies()
 			#print(enemies)
