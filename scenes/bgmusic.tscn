@@ -3,6 +3,7 @@
 [ext_resource type="AudioStream" uid="uid://cmn53pgxk4o45" path="res://assets/audio/music/Sparks_in_the_air.wav" id="1_um84k"]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" unique_id=98774683]
+process_mode = 3
 stream = ExtResource("1_um84k")
 autoplay = true
 bus = &"Music"

@@ -22,4 +22,5 @@ stream_5/stream = ExtResource("6_7mkv4")
 stream_5/weight = 0.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" unique_id=227240990]
+process_mode = 3
 stream = SubResource("AudioStreamRandomizer_x1kqs")

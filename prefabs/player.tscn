@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cs3jk51ijjmjs" path="res://assets/WizUpRight.png" id="8_8rb0w"]
 [ext_resource type="Texture2D" uid="uid://7eyc5l7lwoim" path="res://assets/WizATTACKRISE.png" id="9_sd3sa"]
 [ext_resource type="Texture2D" uid="uid://bcwdqyfsxvon5" path="res://assets/WizDots.png" id="10_m2qjg"]
+[ext_resource type="Texture2D" uid="uid://cy2ijan5vy4s5" path="res://assets/WIZDEATH.png" id="13_lulei"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_74lek"]
 size = Vector2(51, 78)
@@ -758,6 +759,66 @@ region = Rect2(10880, 0, 640, 360)
 [sub_resource type="AtlasTexture" id="AtlasTexture_4d0tf"]
 atlas = ExtResource("10_m2qjg")
 region = Rect2(11520, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdx67"]
+atlas = ExtResource("13_lulei")
+region = Rect2(0, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mhni"]
+atlas = ExtResource("13_lulei")
+region = Rect2(640, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbtou"]
+atlas = ExtResource("13_lulei")
+region = Rect2(1280, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vc12f"]
+atlas = ExtResource("13_lulei")
+region = Rect2(1920, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bq0gv"]
+atlas = ExtResource("13_lulei")
+region = Rect2(2560, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2hmu"]
+atlas = ExtResource("13_lulei")
+region = Rect2(3200, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3c2t"]
+atlas = ExtResource("13_lulei")
+region = Rect2(3840, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjwyj"]
+atlas = ExtResource("13_lulei")
+region = Rect2(4480, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7onm"]
+atlas = ExtResource("13_lulei")
+region = Rect2(5120, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8o7q"]
+atlas = ExtResource("13_lulei")
+region = Rect2(5760, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcdwy"]
+atlas = ExtResource("13_lulei")
+region = Rect2(6400, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqfa6"]
+atlas = ExtResource("13_lulei")
+region = Rect2(7040, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qged"]
+atlas = ExtResource("13_lulei")
+region = Rect2(7680, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_126oa"]
+atlas = ExtResource("13_lulei")
+region = Rect2(8320, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x25b6"]
+atlas = ExtResource("13_lulei")
+region = Rect2(8960, 0, 640, 360)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ky5h"]
 atlas = ExtResource("2_r66lb")
@@ -1517,6 +1578,56 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_cdx67")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mhni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbtou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vc12f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bq0gv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2hmu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3c2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjwyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7onm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8o7q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcdwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqfa6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qged")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_126oa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x25b6")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_8ky5h")
 }, {
 "duration": 1.0,
@@ -1645,10 +1756,8 @@ shape = SubResource("RectangleShape2D_74lek")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2065206841]
 sprite_frames = SubResource("SpriteFrames_w4pj3")
-animation = &"attack10"
+animation = &"idle"
 autoplay = "idle"
-frame = 23
-frame_progress = 1.0
 offset = Vector2(26, -100)
 
 [node name="EnergyRegenTimer" type="Timer" parent="." unique_id=1527453453]

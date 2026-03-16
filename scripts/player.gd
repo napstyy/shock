@@ -1,9 +1,10 @@
 extends Node2D
 
 #@export var energy_bar: TextureProgressBar
+
 signal energychanged(nrg)
 signal hpchanged(hp)
-
+signal playerdied
 var health := 5:
 	set(value):
 		health = value
@@ -15,6 +16,7 @@ var energy := 100.0:
 var energyregen = 1.0
 @onready var shockwave: Attack = $Shockwave
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 
 func _ready() -> void:
 	pass
@@ -34,6 +36,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func gameover():
 	print("You died")
+	playerdied.emit()
+	animated_sprite_2d.play("death")
+	await animated_sprite_2d.animation_finished
+	animated_sprite_2d.visible = false
 	#get_tree().reload_current_scene()
 
 
