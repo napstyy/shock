@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://drle2j3wwdxbw" path="res://assets/Monster3ATTACK.png" id="1_3qxr0"]
 [ext_resource type="Script" uid="uid://crqr7ps8ymb2c" path="res://scripts/enemy/geist.gd" id="1_mrlc4"]
 [ext_resource type="Texture2D" uid="uid://ycefrcf1mc2b" path="res://assets/Monster3MOVE.png" id="2_mrlc4"]
+[ext_resource type="Texture2D" uid="uid://drrf7feebmjqv" path="res://assets/GeistDEATH.png" id="3_f2oln"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3qxr0"]
 atlas = ExtResource("1_3qxr0")
@@ -23,6 +24,14 @@ region = Rect2(591, 0, 197, 142)
 [sub_resource type="AtlasTexture" id="AtlasTexture_mu5a0"]
 atlas = ExtResource("1_3qxr0")
 region = Rect2(788, 0, 197, 142)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgb5y"]
+atlas = ExtResource("3_f2oln")
+region = Rect2(0, 0, 197, 142)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvve2"]
+atlas = ExtResource("3_f2oln")
+region = Rect2(197, 0, 197, 142)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4660s"]
 atlas = ExtResource("2_mrlc4")
@@ -76,6 +85,17 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgb5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvve2")
+}],
+"loop": false,
+"name": &"death",
 "speed": 5.0
 }, {
 "frames": [{
