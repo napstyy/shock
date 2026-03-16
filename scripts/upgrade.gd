@@ -105,6 +105,7 @@ var atknode: Attack
 @onready var card_name: RichTextLabel = $NinePatchRect/CardName
 @onready var card_desc: RichTextLabel = $NinePatchRect/CardDesc
 @onready var card_img: TextureRect = $NinePatchRect/CardImg
+@onready var attack_slots = get_tree().current_scene.get_node("AttackSlots")
 
 #if groups in attacks not in tree, upgrade, otherwise add to tree
 
@@ -133,7 +134,45 @@ func addAttack(): #TODO need to test
 	#print(get_tree().current_scene)
 	get_tree().current_scene.add_child(atk)
 	atk.inputname = "Attack"+ str(get_tree().get_nodes_in_group("attacks").size())
+
+	_add_attack_icon()
 	menuclosed.emit()
+
+
+func _add_attack_icon():
+	var attack_slots = get_node("/root/Main/AttackSlots") #finds hbox
+	
+	if attack_slots == null:
+		push_error("attacks not found bro")
+		return
+
+	var slot_index = attack_slots.get_child_count() + 2
+	#its +2 bc we always start with pillars
+
+	#adding vbox to add numbers near the icons
+	var vbox = VBoxContainer.new()
+	vbox.custom_minimum_size = Vector2(32, 40)
+	vbox.add_theme_constant_override("separation", 0)#ts removes the lil gap
+	#
+	#create the icon and load the text
+	var icon = TextureRect.new()
+	icon.texture = load(upgrade_dict[attack_name]["Icon"])
+	icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	icon.custom_minimum_size = Vector2(32, 32)
+
+	#number label stuff
+	var label = Label.new()
+	label.text = str(slot_index)
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.add_theme_color_override("font_color", Color.BLACK)
+	label.add_theme_font_size_override("font_size", 10)
+
+	#building the icon
+	vbox.add_child(icon)
+	vbox.add_child(label)
+	attack_slots.add_child(vbox)
+
 
 func addUpgrade():
 	print("upgrade")

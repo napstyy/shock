@@ -193,3 +193,9 @@ waves = Array[ExtResource("4_choun")]([SubResource("Resource_jkv2x"), SubResourc
 [node name="EnergyBar" parent="." unique_id=1915036849 instance=ExtResource("6_6rr2n")]
 
 [node name="HPBar" parent="." unique_id=1589258921 instance=ExtResource("7_dm2rk")]
+
+[node name="AttackSlots" type="HBoxContainer" parent="." unique_id=1054912888 groups=["attack_slots"]]
+offset_left = 261.0
+offset_top = 317.0
+offset_right = 301.0
+offset_bottom = 357.0

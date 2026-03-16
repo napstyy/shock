@@ -4,6 +4,7 @@ extends Node2D
 @onready var wave_timer: Timer = $WaveTimer
 @onready var wave_label: RichTextLabel = $RichTextLabel
 
+
 var current_wave: int = 0
 var spawn_queue: Array[PackedScene] = []
 
