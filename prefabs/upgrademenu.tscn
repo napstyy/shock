@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://8y7qq2cxiyr" path="res://scripts/upgrade_menu.gd" id="1_6xxiq"]
 [ext_resource type="PackedScene" uid="uid://c8j2caec5ng3k" path="res://prefabs/upgradecard.tscn" id="1_nqyas"]
+[ext_resource type="AudioStream" uid="uid://ewffp4nlyllb" path="res://assets/audio/menunoise.wav" id="3_atfxq"]
 
 [node name="upgradeMenu" type="Control" unique_id=471795962]
 layout_mode = 3
@@ -28,3 +29,6 @@ offset_right = -160.0
 layout_mode = 1
 offset_left = 160.0
 offset_right = 160.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=55944900]
+stream = ExtResource("3_atfxq")

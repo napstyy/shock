@@ -20,6 +20,7 @@ var attack_arr: Array[Enums.ATTACK_NAME] = []
 @onready var card_1: Upgrade = $Card1
 @onready var card_2: Upgrade = $Card2
 @onready var card_3: Upgrade = $Card3
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 
 
@@ -108,6 +109,9 @@ func draw_upgrades(idx): #TODO: When adding attacks, if there are no new ones in
 func _on_menu_closed():
 	print("close_menu")
 	upgradeclosed.emit()
+	audio_stream_player_2d.play()
+	self.visible = false
+	await audio_stream_player_2d.finished
 	queue_free()
 
 func add_card(index, atk, upg):
